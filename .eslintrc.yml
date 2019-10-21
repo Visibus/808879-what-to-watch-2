@@ -2,6 +2,7 @@ env:
   es6: true
   browser: true
   commonjs: true
+  jest: true
 
 extends: ['htmlacademy/es6', 'plugin:react/recommended']
 
@@ -12,6 +13,9 @@ parserOptions:
   sourceType: module
 
 plugins: ['react']
+
+rules:
+  react/react-in-jsx-scope: off
 
 settings:
   react:

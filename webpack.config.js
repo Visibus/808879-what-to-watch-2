@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require(`path`);
 
 module.exports = {
@@ -10,7 +11,15 @@ module.exports = {
     contentBase: path.join(__dirname, `public`),
     compress: false,
     open: true,
-    port: 1337,
+    port: 1338,
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      React: `react`
+    })
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.webm']
   },
   module: {
     rules: [

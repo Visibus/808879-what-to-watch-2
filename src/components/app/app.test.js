@@ -1,11 +1,11 @@
 import renderer from "react-test-renderer";
 import App from "./app";
+import films from "../../mocks/films";
 
 it(`app correctly renders after relaunch`, () => {
-  const movieNames = [`Movie1`, `Movie2`, `Movie3`, `Movie4`];
   const tree = renderer
      .create(<App
-       movieNames={movieNames}
+       films={films}
      />)
     .toJSON();
 

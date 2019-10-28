@@ -81,7 +81,7 @@ exports[`main page correctly renders after relaunch 1`] = `
           <h2
             className="movie-card__title"
           >
-            Movie1
+            The Grand Budapest Hotel
           </h2>
           <p
             className="movie-card__meta"
@@ -259,6 +259,7 @@ exports[`main page correctly renders after relaunch 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -277,12 +278,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie2
+              Fantastic Beasts: The Crimes of Grindelwald
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -301,12 +303,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie3
+              Bohemian Rhapsody
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -325,12 +328,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie4
+              Macbeth
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -349,12 +353,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie1
+              Aviator
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -373,12 +378,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie2
+              We need to talk about Kevin
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -397,12 +403,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie3
+              What We Do in the Shadows
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -421,12 +428,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie4
+              Revenant
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -445,12 +453,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie1
+              Johnny English
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -469,12 +478,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie2
+              Shutter Island
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -493,12 +503,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie3
+              Pulp Fiction
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -517,12 +528,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie4
+              No Country for Old Men
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -541,12 +553,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie1
+              Snatch
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -565,12 +578,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie2
+              Moonrise Kingdom
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -589,12 +603,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie3
+              Seven Years in Tibet
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -613,12 +628,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie4
+              Midnight Special
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -637,12 +653,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie1
+              War of the Worlds
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -661,12 +678,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie2
+              Dardjeeling Limited
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -685,12 +703,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie3
+              Orlando
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -709,12 +728,13 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie4
+              Mindhunter
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -733,7 +753,7 @@ exports[`main page correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              Movie1
+              Midnight Special
             </a>
           </h3>
         </article>

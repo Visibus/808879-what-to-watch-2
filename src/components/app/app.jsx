@@ -2,13 +2,19 @@ import PropTypes from "prop-types";
 import MainPage from "../mainPage/main-page";
 
 const App = (props) => {
-  const {movieNames} = props;
+  const {films} = props;
 
   return <MainPage
-    movieNames = {movieNames}
+    films = {films}
   />;
 };
 
-App.propTypes = {movieNames: PropTypes.arrayOf(PropTypes.string).isRequired};
+
+App.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape({
+    movieTitle: PropTypes.string.isRequired,
+    movieImg: PropTypes.string.isRequired,
+  })),
+};
 
 export default App;

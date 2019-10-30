@@ -12,6 +12,7 @@ module.exports = {
     compress: false,
     open: true,
     port: 1338,
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.ProvidePlugin({

@@ -1,12 +1,21 @@
 import PropTypes from "prop-types";
-import MainPage from "../mainPage/main-page";
+import MainPage from "../main-page/main-page";
+import MoviePageDetails from "../movie-page-details/movie-page-details";
+
 
 const App = (props) => {
   const {films} = props;
-
-  return <MainPage
-    films = {films}
-  />;
+  switch (location.pathname) {
+    case `/`:
+      return <MainPage
+        films = {films}
+      />;
+    case `/details`:
+      const id = parseInt(location.hash.slice(1), 10);
+      const film = films.find((it) => it.id === id);
+      return <MoviePageDetails film={film} />;
+  }
+  return null;
 };
 
 

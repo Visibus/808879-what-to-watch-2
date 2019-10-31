@@ -1,9 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import MovieCard from "../movie-card/movie-card";
 
-class MoviesList extends React.Component {
+class MoviesList extends React.PureComponent {
   constructor(props) {
     super(props);
 

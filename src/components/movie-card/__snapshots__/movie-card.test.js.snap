@@ -3,15 +3,16 @@
 exports[`renders correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onClick={[Function]}
   onMouseEnter={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
     <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+      alt="Seven Years in Tibet"
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
       width="280"
     />
   </div>
@@ -20,9 +21,9 @@ exports[`renders correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="movie-page.html"
+      href="/details#1"
     >
-      Fantastic Beasts: The Crimes of Grindelwald
+      Seven Years in Tibet
     </a>
   </h3>
 </article>

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import MoviesList from "../movie-list/movie-list";
 
 const MainPage = (props) => {

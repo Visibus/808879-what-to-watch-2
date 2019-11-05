@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import MainPage from "../main-page/main-page";
 import MoviePageDetails from "../movie-page-details/movie-page-details";
 

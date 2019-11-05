@@ -1,8 +1,7 @@
-import renderer from "react-test-renderer";
 import VideoPlayer from "./video-player";
 
 it(`Is video player rendered`, () => {
-  const tree = renderer
+  const tree = window.renderer
     .create(<VideoPlayer
       src={``}
       poster={`img/`}

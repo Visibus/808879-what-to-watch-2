@@ -1,16 +1,10 @@
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
 import MovieCard from "./movie-card";
-
-// import films from "../../mocks/films";
-
-Enzyme.configure({adapter: new Adapter()});
 
 it(`MovieCard correct run afrer click and mouseEnter`, () => {
   const onClick = jest.fn();
   const onMouseEnter = jest.fn();
   const films = {id: 1, movieTitle: `Macbeth`, movieImg: ``, previewVideoLink: ``};
-  const screen = shallow(
+  const screen = window.shallow(
       <MovieCard
         film = {films}
         onHeaderClick = {onClick}

@@ -1,5 +1,3 @@
-import Proptypes from "prop-types";
-
 import VideoPlayer from "../video-player/video-player";
 
 class MovieCard extends React.PureComponent {
@@ -70,15 +68,15 @@ class MovieCard extends React.PureComponent {
 }
 
 MovieCard.propTypes = {
-  film: Proptypes.shape({
-    id: Proptypes.number.isRequired,
-    movieTitle: Proptypes.string.isRequired,
-    movieImg: Proptypes.string.isRequired,
-    previewVideoLink: Proptypes.string.isRequired,
+  film: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    movieTitle: PropTypes.string.isRequired,
+    movieImg: PropTypes.string.isRequired,
+    previewVideoLink: PropTypes.string.isRequired,
   }).isRequired,
-  onTitleClick: Proptypes.func,
-  onMouseEnter: Proptypes.func,
-  onClick: Proptypes.func,
+  onTitleClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 export default MovieCard;

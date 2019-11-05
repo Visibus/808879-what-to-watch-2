@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const convertRuntime = (runtime) => {
   const hours = Math.floor(runtime / 60);
   const minutes = runtime - hours * 60;

@@ -1,9 +1,8 @@
-import renderer from "react-test-renderer";
 import MainPage from "./main-page";
 import films from "../../mocks/films";
 
 it(`main page correctly renders after relaunch`, () => {
-  const tree = renderer
+  const tree = window.renderer
      .create(<MainPage
        films={films}
      />)

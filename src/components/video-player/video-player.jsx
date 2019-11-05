@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 class VideoPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -12,22 +10,33 @@ class VideoPlayer extends React.PureComponent {
     const video = this.videoRef.current;
     const {playerState} = this.props;
 
-    if (playerState.isPlaying) {
-      video.play();
+    if (video) {
+      if (playerState.isPlaying) {
+        video.play();
+      }
     }
   }
 
   componentDidUpdate() {
-    const {playerState} = this.props;
+    const {playerState, src} = this.props;
     const video = this.videoRef.current;
 
-    if (playerState.isPlaying) {
-      video.play();
-    } else {
-      video.pause();
-      video.currentTime = 0;
-      video.load();
+    if (video) {
+      if (playerState.isPlaying) {
+        video.src = src;
+        video.play();
+      } else {
+        video.pause();
+        video.src = src;
+        // video.currentTime = 0;
+        // video.load();
+      }
     }
+  }
+
+  componentWillUnmount() {
+    const video = this.videoRef.current;
+    video.src = ``;
   }
 
   render() {

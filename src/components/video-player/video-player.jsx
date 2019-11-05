@@ -5,6 +5,16 @@ class VideoPlayer extends React.PureComponent {
     super(props);
 
     this.videoRef = React.createRef();
+    this.state = {isPlaying: props.playerState.isPlaying};
+  }
+
+  componentDidMount() {
+    const video = this.videoRef.current;
+    const {playerState} = this.props;
+
+    if (playerState.isPlaying) {
+      video.play();
+    }
   }
 
   componentDidUpdate() {

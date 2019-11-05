@@ -2,36 +2,31 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MovieCard from "./movie-card";
 
-import films from "../../mocks/films";
+// import films from "../../mocks/films";
 
 Enzyme.configure({adapter: new Adapter()});
 
-it(`Movie have state - isPlaying`, () => {
-  const movie = shallow(<MovieCard
-    film={films[0]}
-    id={0}
-  />);
-
-  expect(movie.state(`isPlaying`)).toBe(false);
-});
-
-describe(`Show movie preview`, () => {
-  const movie = shallow(<MovieCard
-    film={films[0]}
-    id={0}
-  />);
-
-  it(`Movie set state isPlaying - true, when mouseenter`, () => {
-    movie.simulate(`mouseEnter`);
-
-    setTimeout(() => {
-      expect(movie.state(`isPlaying`)).toBe(true);
-    }, 1000);
-  });
-
-  it(`Movie set state isPlaying - false, when mouseleave`, () => {
-    movie.simulate(`mouseLeave`);
-
-    expect(movie.state(`isPlaying`)).toBe(false);
+it(`MovieCard correct run afrer click and mouseEnter`, () => {
+  const onClick = jest.fn();
+  const onMouseEnter = jest.fn();
+  const films = {id: 1, movieTitle: `Macbeth`, movieImg: ``, previewVideoLink: ``};
+  const screen = shallow(
+      <MovieCard
+        film = {films}
+        onHeaderClick = {onClick}
+        onMouseEnter={onMouseEnter}/>);
+  const headers = screen.find(`.small-movie-card catalog__movies-card`);
+  headers.forEach((header) => {
+    header.simulate(`click`);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    header.simulate(`mouseEnter`, {
+      preventDefault: () => {
+      },
+      target: {
+        value: films
+      }
+    });
+    expect(onMouseEnter.toHaveBeenCalledTimes(1));
+    expect(onMouseEnter.toHaveBeenCalledWith(films));
   });
 });

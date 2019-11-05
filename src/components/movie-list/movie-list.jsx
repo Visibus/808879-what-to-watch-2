@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import MovieCard from "../movie-card/movie-card";
 
 class MoviesList extends React.PureComponent {

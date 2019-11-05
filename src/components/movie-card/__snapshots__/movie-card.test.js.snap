@@ -5,15 +5,17 @@ exports[`renders correctly 1`] = `
   className="small-movie-card catalog__movies-card"
   onClick={[Function]}
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
-    <img
-      alt="Seven Years in Tibet"
-      height="175"
-      src="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
-      width="280"
+    <video
+      height={175}
+      muted={true}
+      poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+      src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+      width={280}
     />
   </div>
   <h3

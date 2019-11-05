@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Is video player rendered 1`] = `
+<video
+  height={175}
+  muted={true}
+  poster="img/"
+  src=""
+  width={280}
+/>
+`;

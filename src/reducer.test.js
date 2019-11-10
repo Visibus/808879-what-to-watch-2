@@ -1,4 +1,4 @@
-import {ActionCreator, reducer} from "./reducer";
+import {ActionCreator, reducer, AMOUNT_CARS_SHOW} from "./reducer";
 
 describe(`Action creators work correctly`, () => {
   it(`returns correct action on setting selected genre`, () => {
@@ -22,4 +22,34 @@ describe(`Reducer works correctly`, () => {
       movies: [],
     });
   });
+
+  it(`should set amountCardsShow correctly`, () => {
+    expect(reducer({
+      selectedGenre: `All genres`,
+      movies: [],
+      amountCardsShow: 0,
+    }, {
+      type: `SET_CARDS_SHOWN_AMOUNT`,
+      payload: 5,
+    })).toEqual({
+      selectedGenre: `All genres`,
+      movies: [],
+      amountCardsShow: 5,
+    });
+  });
+  it(`should reset amountCardsShow amount`, () => {
+    expect(reducer({
+      selectedGenre: `All genres`,
+      movies: [],
+      amountCardsShow: 0,
+    }, {
+      type: `RESET_SHOWN_CARDS`,
+    })).toEqual({
+      selectedGenre: `All genres`,
+      movies: [],
+      amountCardsShow: AMOUNT_CARS_SHOW
+    });
+  });
 });
+
+

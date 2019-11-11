@@ -2,10 +2,12 @@ import MoviesList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducer';
+import ShowMore from '../show-more/show-more';
 
+const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
-  const {films, genres, selectedGenre, onGenreSelect} = props;
+  const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick} = props;
   return (
     <div>
       <section className="movie-card">
@@ -75,10 +77,10 @@ const MainPage = (props) => {
 
 
           <MoviesList films={films} />
-
-          <div className="catalog__more">
+          {isShowMoreVisible && <ShowMore onClick={onShowMoreClick}/>}
+          {/* <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
-          </div>
+          </div> */}
         </section>
 
         <footer className="page-footer">
@@ -107,17 +109,32 @@ const getUniqueGenres = (movies) => {
 const filterMoviesByGenre = (movies, genre) =>
   (genre === `All genres`) ? movies : movies.filter((it) => it.genre === genre);
 
+const areMoviesLeftToShow = (state) => {
+  const movies = filterMoviesByGenre(state.movies, state.selectedGenre);
+  const cardsAmount = state.amountCardsShow;
+  return movies.length > cardsAmount;
+};
+
+const getAllowedAmountOfCards = (state) => {
+  const movies = filterMoviesByGenre(state.movies, state.selectedGenre);
+  const cardsAmount = state.amountCardsShow;
+  return movies.slice(0, cardsAmount);
+};
+
 const mapStateToProps = (state) => ({
   selectedGenre: state.selectedGenre,
-  films: filterMoviesByGenre(state.movies, state.selectedGenre),
+  films: getAllowedAmountOfCards(state, state.amountCardsShow),
   genres: getUniqueGenres(state.movies),
+  isShowMoreVisible: areMoviesLeftToShow(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreSelect: (evt, genre) => {
     evt.preventDefault();
     dispatch(ActionCreator.setSelectedGenre(genre));
-  }
+    dispatch(ActionCreator.resetShownCards());
+  },
+  onShowMoreClick: () => dispatch(ActionCreator.setCardsShownAmount(MORE_CARDS_TO_SHOW_AMOUNT)),
 });
 
 
@@ -130,6 +147,8 @@ MainPage.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onGenreSelect: PropTypes.func.isRequired,
+  isShowMoreVisible: PropTypes.bool.isRequired,
+  onShowMoreClick: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

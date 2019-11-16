@@ -3,26 +3,26 @@ class VideoPlayer extends React.PureComponent {
     super(props);
 
     this.videoRef = React.createRef();
-    this.state = {isPlaying: props.playerState.isPlaying};
+    // this.state = {isPlaying: props.isPlaying};
   }
 
   componentDidMount() {
     const video = this.videoRef.current;
-    const {playerState} = this.props;
+    const {isPlaying} = this.props;
 
     if (video) {
-      if (playerState.isPlaying) {
+      if (isPlaying) {
         video.play();
       }
     }
   }
 
   componentDidUpdate() {
-    const {playerState, src} = this.props;
+    const {isPlaying, src} = this.props;
     const video = this.videoRef.current;
 
     if (video) {
-      if (playerState.isPlaying) {
+      if (isPlaying) {
         video.src = src;
         video.play();
       } else {
@@ -57,9 +57,7 @@ VideoPlayer.propTypes = {
   muted: PropTypes.bool.isRequired,
   width: PropTypes.number,
   height: PropTypes.number,
-  playerState: PropTypes.exact({
-    isPlaying: PropTypes.bool
-  }).isRequired
+  isPlaying: PropTypes.bool.isRequired,
 };
 
 export default VideoPlayer;

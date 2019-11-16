@@ -4,8 +4,6 @@ exports[`renders correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
@@ -13,7 +11,7 @@ exports[`renders correctly 1`] = `
     <video
       height={175}
       muted={true}
-      poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+      poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
       src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
       width={280}
     />

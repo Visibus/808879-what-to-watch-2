@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -44,7 +44,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/What-We-Do-in-the-Shadows.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -72,7 +72,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Johnny_English.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -100,7 +100,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/bronson.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -128,7 +128,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Macbeth.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -156,7 +156,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -184,7 +184,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/What-We-Do-in-the-Shadows.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -212,7 +212,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Johnny_English.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -240,7 +240,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/bronson.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -268,7 +268,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Macbeth.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -296,7 +296,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -324,7 +324,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/What-We-Do-in-the-Shadows.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -352,7 +352,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Johnny_English.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -380,7 +380,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/bronson.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -408,7 +408,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Macbeth.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -436,7 +436,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -464,7 +464,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/What-We-Do-in-the-Shadows.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -492,7 +492,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Johnny_English.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -520,7 +520,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/bronson.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -548,7 +548,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Macbeth.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -576,7 +576,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -604,7 +604,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/What-We-Do-in-the-Shadows.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -632,7 +632,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Johnny_English.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
         src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
         width={280}
       />
@@ -660,7 +660,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/bronson.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />
@@ -688,7 +688,7 @@ exports[`renders correctly 1`] = `
       <video
         height={175}
         muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/poster/Macbeth.jpg"
+        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
         src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
         width={280}
       />

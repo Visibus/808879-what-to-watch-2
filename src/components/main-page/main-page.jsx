@@ -4,9 +4,14 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducer';
 import ShowMore from '../show-more/show-more';
 
+import withMovieList from "../../hocs/with-movie-list/with-movie-list";
+
+const MoviesListWrapped = withMovieList(MoviesList);
+
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
+  // const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick, onMovieClick} = props;
   const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick} = props;
   return (
     <div>
@@ -75,8 +80,10 @@ const MainPage = (props) => {
             onSelect={onGenreSelect}
           />
 
-
-          <MoviesList films={films} />
+          <MoviesListWrapped
+            films={films}
+            // onMovieClick={onMovieClick}
+          />
           {isShowMoreVisible && <ShowMore onClick={onShowMoreClick}/>}
           {/* <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -149,6 +156,7 @@ MainPage.propTypes = {
   onGenreSelect: PropTypes.func.isRequired,
   isShowMoreVisible: PropTypes.bool.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
+  // onMovieClick: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

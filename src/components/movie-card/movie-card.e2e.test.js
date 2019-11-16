@@ -3,7 +3,7 @@ import MovieCard from "./movie-card";
 it(`MovieCard correct run afrer click and mouseEnter`, () => {
   const onClick = jest.fn();
   const onMouseEnter = jest.fn();
-  const films = {id: 1, movieTitle: `Macbeth`, movieImg: ``, previewVideoLink: ``};
+  const films = {id: 1, movieTitle: `Macbeth`, previewImage: ``, previewVideoLink: ``};
   const screen = window.shallow(
       <MovieCard
         film = {films}

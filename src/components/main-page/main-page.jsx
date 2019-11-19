@@ -2,6 +2,7 @@ import MoviesList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducer';
+import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from '../../selectors';
 import ShowMore from '../show-more/show-more';
 
 import withMovieList from "../../hocs/with-movie-list/with-movie-list";
@@ -11,7 +12,6 @@ const MoviesListWrapped = withMovieList(MoviesList);
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
-  // const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick, onMovieClick} = props;
   const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick} = props;
   return (
     <div>
@@ -82,7 +82,6 @@ const MainPage = (props) => {
 
           <MoviesListWrapped
             films={films}
-            // onMovieClick={onMovieClick}
           />
           {isShowMoreVisible && <ShowMore onClick={onShowMoreClick}/>}
           {/* <div className="catalog__more">
@@ -108,31 +107,12 @@ const MainPage = (props) => {
   );
 };
 
-const getUniqueGenres = (movies) => {
-  const genres = movies.map((it) => it.genre);
-  return [`All genres`, ...new Set(genres)];
-};
-
-const filterMoviesByGenre = (movies, genre) =>
-  (genre === `All genres`) ? movies : movies.filter((it) => it.genre === genre);
-
-const areMoviesLeftToShow = (state) => {
-  const movies = filterMoviesByGenre(state.movies, state.selectedGenre);
-  const cardsAmount = state.amountCardsShow;
-  return movies.length > cardsAmount;
-};
-
-const getAllowedAmountOfCards = (state) => {
-  const movies = filterMoviesByGenre(state.movies, state.selectedGenre);
-  const cardsAmount = state.amountCardsShow;
-  return movies.slice(0, cardsAmount);
-};
-
 const mapStateToProps = (state) => ({
-  selectedGenre: state.selectedGenre,
-  films: getAllowedAmountOfCards(state, state.amountCardsShow),
-  genres: getUniqueGenres(state.movies),
+  selectedGenre: getSelectedGenre(state),
+  films: getAllowedAmountOfCards(state),
+  genres: getUniqueGenres(state),
   isShowMoreVisible: areMoviesLeftToShow(state)
+  // isShowMoreVisible: state.movies.length > state.amountCardsShow,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -156,7 +136,6 @@ MainPage.propTypes = {
   onGenreSelect: PropTypes.func.isRequired,
   isShowMoreVisible: PropTypes.bool.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
-  // onMovieClick: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

@@ -6,13 +6,10 @@ const MovieCard = (props) => {
   const {movieTitle, previewVideoLink, previewImage, id} = film;
 
   const handleMovieCardClick = (evt) => {
-    // const {id} = props.film;
-    const {onMouseEnter} = props;
+    const {onClick} = props;
 
-    const movieUrl = `/details#${id}`;
     evt.preventDefault();
-    location.assign(movieUrl);
-    onMouseEnter(props.film);
+    onClick(props.film);
   };
 
   return (

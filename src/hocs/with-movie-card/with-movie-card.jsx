@@ -1,4 +1,4 @@
-const withMovieCard = (Component) => {
+const withMovieCard = (Component) =>
   class WithMovieCard extends React.PureComponent {
     constructor(props) {
       super(props);
@@ -39,11 +39,6 @@ const withMovieCard = (Component) => {
         isPlaying={this.state.isPlaying}
       />;
     }
-  }
-
-  WithMovieCard.propTypes = {};
-
-  return WithMovieCard;
-};
+  };
 
 export default withMovieCard;

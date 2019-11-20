@@ -1,8 +1,6 @@
 import MovieCard from "../movie-card/movie-card";
 
-import withMovieCard from "../../hocs/with-movie-card/with-movie-card";
-
-const MovieCardWrapped = withMovieCard(MovieCard);
+import withMovieList from "../../hocs/with-movie-list/with-movie-list";
 
 const MoviesList = (props) => {
   const {films, onClick} = props;
@@ -11,7 +9,7 @@ const MoviesList = (props) => {
     <div className="catalog__movies-list">
 
       {films.map((film) => (
-        <MovieCardWrapped key={film.id}
+        <MovieCard key={film.id}
           film={film}
           onClick={onClick}
         />
@@ -33,4 +31,4 @@ MoviesList.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default MoviesList;
+export default withMovieList(MoviesList);

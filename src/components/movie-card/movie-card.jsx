@@ -1,4 +1,5 @@
 import VideoPlayer from "../video-player/video-player";
+import withMovieCard from "../../hocs/with-movie-card/with-movie-card";
 
 const MovieCard = (props) => {
 
@@ -52,4 +53,4 @@ MovieCard.propTypes = {
   isPlaying: PropTypes.bool
 };
 
-export default MovieCard;
+export default withMovieCard(MovieCard);

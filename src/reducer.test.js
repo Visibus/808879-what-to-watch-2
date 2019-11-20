@@ -1,4 +1,6 @@
-import {ActionCreator, reducer, AMOUNT_CARS_SHOW} from "./reducer";
+import {ActionCreator, reducer, AMOUNT_CARS_SHOW, Operation} from "./reducer";
+import createAPI from './api';
+import MockAdapter from "axios-mock-adapter";
 
 describe(`Action creators work correctly`, () => {
   it(`returns correct action on setting selected genre`, () => {
@@ -50,6 +52,26 @@ describe(`Reducer works correctly`, () => {
       amountCardsShow: AMOUNT_CARS_SHOW
     });
   });
+
+  it(`Load movies`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const moviesLoader = Operation.loadMovies();
+
+    apiMock
+      .onGet(`/films`)
+      .reply(200, [{fake: true}]);
+
+    return moviesLoader(dispatch, null, api).then(() => {
+      expect(dispatch).toHaveBeenCalledTimes(1);
+      expect(dispatch).toHaveBeenNthCalledWith(1, {
+        type: `LOAD_MOVIES`,
+        payload: [{fake: true}]
+      });
+    });
+  });
+
 });
 
 

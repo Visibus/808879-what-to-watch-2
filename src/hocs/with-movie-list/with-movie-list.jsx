@@ -1,5 +1,8 @@
-const withMovieList = (Component) => {
+const withMovieList = (Component) =>
   class WithMovieList extends React.PureComponent {
+    static get propTypes() {
+    }
+
     constructor(props) {
       super(props);
 
@@ -11,6 +14,7 @@ const withMovieList = (Component) => {
     }
 
     handleClick(activeMovie) {
+      this.setState({activeCard: activeMovie});
       location.assign(`/details#${activeMovie.id}`);
     }
 
@@ -20,12 +24,8 @@ const withMovieList = (Component) => {
         onClick={this.handleClick}
       />;
     }
-  }
-  WithMovieList.propTypes = {};
 
-  return WithMovieList;
-
-};
+  };
 
 
 export default withMovieList;

@@ -5,10 +5,6 @@ import {ActionCreator} from '../../reducer';
 import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from '../../selectors';
 import ShowMore from '../show-more/show-more';
 
-import withMovieList from "../../hocs/with-movie-list/with-movie-list";
-
-const MoviesListWrapped = withMovieList(MoviesList);
-
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
@@ -80,7 +76,7 @@ const MainPage = (props) => {
             onSelect={onGenreSelect}
           />
 
-          <MoviesListWrapped
+          <MoviesList
             films={films}
           />
           {isShowMoreVisible && <ShowMore onClick={onShowMoreClick}/>}

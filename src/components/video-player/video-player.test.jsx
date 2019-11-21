@@ -8,7 +8,7 @@ it(`Is video player rendered`, () => {
       muted={true}
       width={280}
       height={175}
-      isPlaying={{}}
+      isPlaying={false}
     />);
 
   expect(tree).toMatchSnapshot();

@@ -1,33 +1,31 @@
-const withMovieList = (Component) => {
+const withMovieList = (Component) =>
   class WithMovieList extends React.PureComponent {
+    static get propTypes() {
+    }
+
     constructor(props) {
       super(props);
 
       this.state = {
         activeCard: null,
       };
-      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleClick = this.handleClick.bind(this);
 
     }
 
-    handleMouseEnter(props) {
-      this.setState({
-        activeCard: props.id,
-      });
-
+    handleClick(activeMovie) {
+      this.setState({activeCard: activeMovie});
+      location.assign(`/details#${activeMovie.id}`);
     }
 
     render() {
       return <Component
         {...this.props}
-        onMouseEnter={this.handleMouseEnter}
+        onClick={this.handleClick}
       />;
     }
-  }
 
-  WithMovieList.propTypes = {};
+  };
 
-  return WithMovieList;
-};
 
 export default withMovieList;

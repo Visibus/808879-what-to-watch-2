@@ -1,11 +1,14 @@
 import MovieCard from "./movie-card";
 
-import films from "../../mocks/films";
-
 it(`renders correctly`, () => {
   const tree = window.renderer.create(
       <MovieCard
-        film={films[0]} />
+        film={[]}
+        onTitleClick={jest.fn()}
+        onMovieEnter={jest.fn()}
+        onMovieLeave={jest.fn()}
+        isPlaying={false}
+      />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

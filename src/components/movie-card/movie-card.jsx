@@ -1,4 +1,5 @@
 import VideoPlayer from "../video-player/video-player";
+import withMovieCard from "../../hocs/with-movie-card/with-movie-card";
 
 const MovieCard = (props) => {
 
@@ -6,13 +7,10 @@ const MovieCard = (props) => {
   const {movieTitle, previewVideoLink, previewImage, id} = film;
 
   const handleMovieCardClick = (evt) => {
-    // const {id} = props.film;
-    const {onMouseEnter} = props;
+    const {onClick} = props;
 
-    const movieUrl = `/details#${id}`;
     evt.preventDefault();
-    location.assign(movieUrl);
-    onMouseEnter(props.film);
+    onClick(props.film);
   };
 
   return (
@@ -55,4 +53,4 @@ MovieCard.propTypes = {
   isPlaying: PropTypes.bool
 };
 
-export default MovieCard;
+export default withMovieCard(MovieCard);

@@ -1,5 +1,7 @@
-import {ActionCreator, reducer, AMOUNT_CARS_SHOW, Operation} from "./reducer";
-import createAPI from './api';
+import ActionCreator from "./actions/actions";
+import {reducer, AMOUNT_CARS_SHOW, Operation} from "./reducers";
+
+import createAPI from '../api';
 import MockAdapter from "axios-mock-adapter";
 
 describe(`Action creators work correctly`, () => {
@@ -7,6 +9,18 @@ describe(`Action creators work correctly`, () => {
     expect(ActionCreator.setSelectedGenre(`Comedy`)).toEqual({
       type: `SET_SELECTED_GENRE`,
       payload: `Comedy`,
+    });
+  });
+  it(`Action creator for require authorization returns correct action`, () => {
+    expect(ActionCreator.requiredAuthorization(true)).toEqual({
+      type: `REQUIRED_AUTHORIZATION`,
+      payload: true,
+    });
+  });
+  it(`Action creator for save user data returns correct action`, () => {
+    expect(ActionCreator.saveUserData({})).toEqual({
+      type: `SAVE_USER_DATA`,
+      payload: {},
     });
   });
 });
@@ -70,6 +84,25 @@ describe(`Reducer works correctly`, () => {
         payload: [{fake: true}]
       });
     });
+  });
+
+  it(`Should make a correct signin`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const authorization = Operation.authorization(`vvv@vvv.ru`, `pa$$w0rd`);
+
+    apiMock
+      .onPost(`/login`, {email: `vvv@vvv.ru`, password: `pa$$w0rd`})
+      .reply(200, {fake: true});
+
+    return authorization(dispatch, null, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: `SAVE_USER_DATA`,
+          payload: {fake: true},
+        });
+      });
   });
 
 });

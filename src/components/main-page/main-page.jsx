@@ -1,14 +1,14 @@
 import MoviesList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer';
-import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from '../../selectors';
+import ActionCreator from "../../reducer/actions/actions";
+import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from "../../reducer/selectors/selectors";
 import ShowMore from '../show-more/show-more';
 
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
-  const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick} = props;
+  const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick, isAuthorizationRequired, userData} = props;
   return (
     <div>
       <section className="movie-card">
@@ -18,21 +18,37 @@ const MainPage = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+        {isAuthorizationRequired ?
+          <header className="page-header">
+            <div className="logo">
+              <a className="logo__link">
+                <span className="logo__letter logo__letter--1">W</span>
+                <span className="logo__letter logo__letter--2">T</span>
+                <span className="logo__letter logo__letter--3">W</span>
+              </a>
             </div>
-          </div>
-        </header>
+
+            <div className="user-block">
+              <a href="sign-in.html" className="user-block__link">Sign in</a>
+            </div>
+          </header>
+          :
+          <header className="page-header movie-card__head">
+            <div className="logo">
+              <a className="logo__link">
+                <span className="logo__letter logo__letter--1">W</span>
+                <span className="logo__letter logo__letter--2">T</span>
+                <span className="logo__letter logo__letter--3">W</span>
+              </a>
+            </div>
+
+            <div className="user-block">
+              <div className="user-block__avatar">
+                <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+              </div>
+            </div>
+          </header>
+        }
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -80,9 +96,6 @@ const MainPage = (props) => {
             films={films}
           />
           {isShowMoreVisible && <ShowMore onClick={onShowMoreClick}/>}
-          {/* <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div> */}
         </section>
 
         <footer className="page-footer">
@@ -108,7 +121,6 @@ const mapStateToProps = (state) => ({
   films: getAllowedAmountOfCards(state),
   genres: getUniqueGenres(state),
   isShowMoreVisible: areMoviesLeftToShow(state)
-  // isShowMoreVisible: state.movies.length > state.amountCardsShow,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -132,6 +144,13 @@ MainPage.propTypes = {
   onGenreSelect: PropTypes.func.isRequired,
   isShowMoreVisible: PropTypes.bool.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired,
+  userData: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    avatarUrl: PropTypes.string,
+  }),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

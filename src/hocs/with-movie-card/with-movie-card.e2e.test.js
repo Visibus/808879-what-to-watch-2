@@ -16,6 +16,7 @@ describe(`Show movie preview`, () => {
     id={0}
     key={0}
     onMovieEnter={jest.fn()}
+    isAuthorizationRequired = {false}
   />);
 
   it(`Movie set state isPlaying - true, when mouseenter`, () => {

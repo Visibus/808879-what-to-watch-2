@@ -13,6 +13,8 @@ exports[`renders correctly 1`] = `
     <video
       height={175}
       muted={true}
+      poster=""
+      src=""
       width={280}
     />
   </div>
@@ -21,9 +23,11 @@ exports[`renders correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/details#undefined"
+      href="/details#4"
       onClick={[MockFunction]}
-    />
+    >
+      
+    </a>
   </h3>
 </article>
 `;

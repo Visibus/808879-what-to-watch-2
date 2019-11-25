@@ -8,7 +8,6 @@ const MovieCard = (props) => {
 
   const handleMovieCardClick = (evt) => {
     const {onClick} = props;
-
     evt.preventDefault();
     onClick(props.film);
   };

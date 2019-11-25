@@ -1,33 +1,16 @@
-import AdapterMovie from "./adapters/adapter-movie/adapter-movie";
+import AdapterMovie from "../adapters/adapter-movie/adapter-movie";
+import AdapterLogin from "../adapters/adapter-login/adapter-login";
+import {SET_SELECTED_GENRE, SET_CARDS_SHOWN_AMOUNT, RESET_SHOWN_CARDS, LOAD_MOVIES, REQUIRED_AUTHORIZATION, SAVE_USER_DATA} from "./constants";
+import ActionCreator from "./actions/actions";
 
-const SET_SELECTED_GENRE = `SET_SELECTED_GENRE`;
-const SET_CARDS_SHOWN_AMOUNT = `SET_CARDS_SHOWN_AMOUNT`;
-const RESET_SHOWN_CARDS = `RESET_SHOWN_CARDS`;
-const LOAD_MOVIES = `LOAD_MOVIES`;
 const AMOUNT_CARS_SHOW = 8;
 
 export const initialState = {
   selectedGenre: `All genres`,
   movies: [],
   amountCardsShow: AMOUNT_CARS_SHOW,
-};
-
-const ActionCreator = {
-  setSelectedGenre: (genre) => ({
-    type: SET_SELECTED_GENRE,
-    payload: genre
-  }),
-  setCardsShownAmount: (amount) => ({
-    type: SET_CARDS_SHOWN_AMOUNT,
-    payload: amount
-  }),
-  resetShownCards: () => ({
-    type: RESET_SHOWN_CARDS,
-  }),
-  loadMovies: (movies) => ({
-    type: LOAD_MOVIES,
-    payload: movies
-  }),
+  isAuthorizationRequired: true,
+  userData: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,6 +31,14 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         movies: action.payload.map((data) => AdapterMovie.parseMovies(data))
       });
+    case REQUIRED_AUTHORIZATION:
+      return Object.assign({}, state, {
+        isAuthorizationRequired: action.payload
+      });
+    case SAVE_USER_DATA:
+      return Object.assign({}, state, {
+        userData: AdapterLogin.parseLogins(action.payload)
+      });
     default:
       return state;
   }
@@ -58,7 +49,13 @@ const Operation = {
     return api.get(`/films`).then((response) => {
       dispatch(ActionCreator.loadMovies(response.data));
     });
-  }
+  },
+  authorization: (email, password) => (dispatch, _, api) => {
+    return api.post(`/login`, {email, password}).then((response) => {
+      dispatch(ActionCreator.saveUserData(response.data));
+      dispatch(ActionCreator.requiredAuthorization(false));
+    });
+  },
 };
 
-export {reducer, ActionCreator, AMOUNT_CARS_SHOW, Operation};
+export {reducer, AMOUNT_CARS_SHOW, Operation};

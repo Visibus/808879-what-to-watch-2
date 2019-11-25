@@ -1,21 +1,15 @@
-const convertRuntime = (runtime) => {
-  const hours = Math.floor(runtime / 60);
-  const minutes = runtime - hours * 60;
-
-  return `${hours}h ${minutes}m`;
-};
+import Tabs from "../tabs/tabs";
+import MoviesList from "../movie-list/movie-list";
 
 const MoviePageDetails = (props) => {
+  const {film, moreLikeThisFilms} = props;
   const {
     backgroundColor,
     backgroundImage,
     movieTitle,
     genre,
     released,
-    movieImg,
-    director,
-    starring,
-    runtime,
+    movieImg
   } = props.film;
   return (
     <div>
@@ -77,54 +71,7 @@ const MoviePageDetails = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="movie-card__text movie-card__row">
-                <div className="movie-card__text-col">
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Director</strong>
-                    <span className="movie-card__details-value">{director}</span>
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Starring</strong>
-                    <span className="movie-card__details-value">
-                      {starring.map((it, index) => {
-                        const lastEl = index < starring.length - 1;
-                        const delimiter = lastEl ? `,` : ``;
-                        const br = lastEl ? <br/> : null;
-                        return <span key={index}>{`${it} ${delimiter}`}{br}</span>;
-                      })}
-                    </span>
-                  </p>
-                </div>
-
-                <div className="movie-card__text-col">
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Run Time</strong>
-                    <span className="movie-card__details-value">{convertRuntime(runtime)}</span>
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Genre</strong>
-                    <span className="movie-card__details-value">{genre}</span>
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Released</strong>
-                    <span className="movie-card__details-value">{released}</span>
-                  </p>
-                </div>
-              </div>
+              <Tabs film={film} />
             </div>
           </div>
         </div>
@@ -132,45 +79,10 @@ const MoviePageDetails = (props) => {
 
       <div className="page-content">
         <section className="catalog catalog--like-this">
+          {moreLikeThisFilms.length > 0 && <>
           <h2 className="catalog__title">More like this</h2>
-
-          <div className="catalog__movies-list">
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-              </h3>
-            </article>
-          </div>
+          <MoviesList films={moreLikeThisFilms} />
+        </>}
         </section>
 
         <footer className="page-footer">
@@ -191,17 +103,25 @@ const MoviePageDetails = (props) => {
   );
 };
 
+const filmPropType = {
+  backgroundColor: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
+  movieTitle: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  released: PropTypes.number,
+  movieImg: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
+  starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  runtime: PropTypes.number.isRequired,
+};
+
+MoviePageDetails.defaultProps = {
+  moreLikeThisFilms: [],
+};
+
 MoviePageDetails.propTypes = {
-  film: PropTypes.shape({
-    backgroundColor: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.string.isRequired,
-    movieTitle: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    released: PropTypes.number,
-    movieImg: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    runtime: PropTypes.number.isRequired}),
+  film: PropTypes.shape(filmPropType),
+  moreLikeThisFilms: PropTypes.arrayOf(PropTypes.shape(filmPropType)),
 };
 
 export default MoviePageDetails;

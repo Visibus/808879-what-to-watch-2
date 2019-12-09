@@ -10,23 +10,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/1"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#1"
+        href="/films/1"
+        onClick={[Function]}
       >
         Seven Years in Tibet
       </a>
@@ -38,23 +44,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/2"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#2"
+        href="/films/2"
+        onClick={[Function]}
       >
         What We Do in the Shadows
       </a>
@@ -66,23 +78,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/3"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#3"
+        href="/films/3"
+        onClick={[Function]}
       >
         Johnny English
       </a>
@@ -94,23 +112,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/4"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#4"
+        href="/films/4"
+        onClick={[Function]}
       >
         Bronson
       </a>
@@ -122,23 +146,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/5"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#5"
+        href="/films/5"
+        onClick={[Function]}
       >
         Macbeth
       </a>
@@ -150,23 +180,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/6"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#6"
+        href="/films/6"
+        onClick={[Function]}
       >
         Seven Years in Tibet
       </a>
@@ -178,23 +214,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/7"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#7"
+        href="/films/7"
+        onClick={[Function]}
       >
         What We Do in the Shadows
       </a>
@@ -206,23 +248,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/8"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#8"
+        href="/films/8"
+        onClick={[Function]}
       >
         Johnny English
       </a>
@@ -234,23 +282,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/9"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#9"
+        href="/films/9"
+        onClick={[Function]}
       >
         Bronson
       </a>
@@ -262,23 +316,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/10"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#10"
+        href="/films/10"
+        onClick={[Function]}
       >
         Macbeth
       </a>
@@ -290,23 +350,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/11"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#11"
+        href="/films/11"
+        onClick={[Function]}
       >
         Seven Years in Tibet
       </a>
@@ -318,23 +384,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/12"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#12"
+        href="/films/12"
+        onClick={[Function]}
       >
         What We Do in the Shadows
       </a>
@@ -346,23 +418,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/13"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#13"
+        href="/films/13"
+        onClick={[Function]}
       >
         Johnny English
       </a>
@@ -374,23 +452,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/14"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#14"
+        href="/films/14"
+        onClick={[Function]}
       >
         Bronson
       </a>
@@ -402,23 +486,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/15"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#15"
+        href="/films/15"
+        onClick={[Function]}
       >
         Macbeth
       </a>
@@ -430,23 +520,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/16"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#16"
+        href="/films/16"
+        onClick={[Function]}
       >
         Seven Years in Tibet
       </a>
@@ -458,23 +554,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/17"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#17"
+        href="/films/17"
+        onClick={[Function]}
       >
         What We Do in the Shadows
       </a>
@@ -486,23 +588,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/18"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#18"
+        href="/films/18"
+        onClick={[Function]}
       >
         Johnny English
       </a>
@@ -514,23 +622,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/19"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#19"
+        href="/films/19"
+        onClick={[Function]}
       >
         Bronson
       </a>
@@ -542,23 +656,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/20"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#20"
+        href="/films/20"
+        onClick={[Function]}
       >
         Macbeth
       </a>
@@ -570,23 +690,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/21"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#21"
+        href="/films/21"
+        onClick={[Function]}
       >
         Seven Years in Tibet
       </a>
@@ -598,23 +724,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/22"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/what-we-do-in-the-shadows.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#22"
+        href="/films/22"
+        onClick={[Function]}
       >
         What We Do in the Shadows
       </a>
@@ -626,23 +758,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/23"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/johnny-english.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#23"
+        href="/films/23"
+        onClick={[Function]}
       >
         Johnny English
       </a>
@@ -654,23 +792,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/24"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#24"
+        href="/films/24"
+        onClick={[Function]}
       >
         Bronson
       </a>
@@ -682,23 +826,29 @@ exports[`renders correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/25"
+      onClick={[Function]}
     >
-      <video
-        height={175}
-        muted={true}
-        poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width={280}
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height={175}
+          muted={true}
+          poster="https://es31-server.appspot.com/wtw/static/film/preview/macbeth.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width={280}
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
       <a
         className="small-movie-card__link"
-        href="/details#25"
+        href="/films/25"
+        onClick={[Function]}
       >
         Macbeth
       </a>

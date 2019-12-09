@@ -1,8 +1,9 @@
 import Tabs from "../tabs/tabs";
 import MoviesList from "../movie-list/movie-list";
+import {Link} from "react-router-dom";
 
 const MoviePageDetails = (props) => {
-  const {film, moreLikeThisFilms} = props;
+  const {film, moreLikeThisFilms, isAuthorizationRequired, userData, onOpenCloseFilm} = props;
   const {
     backgroundColor,
     backgroundImage,
@@ -30,11 +31,20 @@ const MoviePageDetails = (props) => {
               </a>
             </div>
 
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+            {isAuthorizationRequired ?
+              <div className="user-block">
+                <Link to={`/login`} className="user-block__link">Sign in</Link>
               </div>
-            </div>
+              :
+              <div className="user-block">
+                <Link to={`/mylist`}>
+                  <div className="user-block__avatar">
+                    <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+                  </div>
+                </Link>
+              </div>
+            }
+
           </header>
 
           <div className="movie-card__wrap">
@@ -46,7 +56,9 @@ const MoviePageDetails = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button className="btn btn--play movie-card__button" type="button" onClick={() => {
+                  onOpenCloseFilm(true);
+                }}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -122,6 +134,15 @@ MoviePageDetails.defaultProps = {
 MoviePageDetails.propTypes = {
   film: PropTypes.shape(filmPropType),
   moreLikeThisFilms: PropTypes.arrayOf(PropTypes.shape(filmPropType)),
+  isAuthorizationRequired: PropTypes.bool.isRequired,
+  onOpenCloseFilm: PropTypes.func,
+  userData: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    avatarUrl: PropTypes.string,
+  }),
 };
+
 
 export default MoviePageDetails;

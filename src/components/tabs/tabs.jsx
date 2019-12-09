@@ -1,48 +1,7 @@
+import {formatRuntime, movieRating, formatDate, convertToISODate, formatRating} from "..//../helpers/helpers";
 const TAB_OVERVIEW = `Overview`;
 const TAB_DETAILS = `Details`;
 const TAB_REVIEWS = `Reviews`;
-
-const formatRuntime = (runTime) => {
-  const h = Math.floor(runTime / 60);
-  const m = runTime - h * 60;
-
-  return `${h}h ${m}m`;
-};
-
-const movieRating = (rating) => {
-  if (rating < 3.0) {
-    return `Bad`;
-  }
-  if (rating < 5.0) {
-    return `Normal`;
-  }
-  if (rating < 8.0) {
-    return `Good`;
-  }
-  if (rating < 10.0) {
-    return `Very good`;
-  }
-  return `Awesome`;
-};
-
-const formatDate = (date) => {
-  const formatter = new Intl.DateTimeFormat(`en`, {
-    month: `long`,
-    day: `numeric`,
-    year: `numeric`,
-  });
-  return formatter.format(new Date(date));
-};
-
-const convertToISODate = (date) => {
-
-  return new Date(date).toISOString();
-};
-
-const formatRating = (rating) => {
-  const formatter = new Intl.NumberFormat(navigator.language, {minimumFractionDigits: 1});
-  return formatter.format(rating);
-};
 
 const tabs = [TAB_OVERVIEW, TAB_DETAILS, TAB_REVIEWS];
 
@@ -147,12 +106,13 @@ class Tabs extends React.PureComponent {
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Starring</strong>
             <span className="movie-card__details-value">
-              {starring.map((it, idx) => {
+              {starring.join(`, `)}
+              {/* {starring.map((it, idx) => {
                 const notLast = idx < starring.length - 1;
                 const coma = notLast ? `,` : ``;
                 const br = notLast ? <br/> : null;
                 return <div key={idx}>{it + coma}{br}</div>;
-              })}
+              })} */}
             </span>
           </p>
         </div>

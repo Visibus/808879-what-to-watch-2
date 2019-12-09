@@ -1,7 +1,8 @@
 import withSignIn from "../../hocs/with-sign-in/with-sign-in";
+import {Redirect} from 'react-router-dom';
 
-const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn}) => {
-  return (
+const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn, isAuthorizationRequired}) => {
+  return isAuthorizationRequired ? (
     <div className="user-page">
       <header className="page-header user-page__head">
         <div className="logo">
@@ -47,7 +48,7 @@ const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUser
         </div>
       </footer>
     </div>
-  );
+  ) : <Redirect to="/"></Redirect>;
 };
 
 SignIn.propTypes = {
@@ -56,6 +57,7 @@ SignIn.propTypes = {
   onChangeUserEmailHandler: PropTypes.func.isRequired,
   onChangeUserPasswordHandler: PropTypes.func.isRequired,
   onSubmitSignIn: PropTypes.func.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired,
 };
 
 export default withSignIn(SignIn);

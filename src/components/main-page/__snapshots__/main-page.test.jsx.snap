@@ -9,8 +9,8 @@ exports[`main page correctly renders after relaunch 1`] = `
       className="movie-card__bg"
     >
       <img
-        alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        alt="Seven Years in Tibet"
+        src="https://es31-server.appspot.com/wtw/static/film/preview/seven-years-in-tibet.jpg"
       />
     </div>
     <h1
@@ -47,16 +47,21 @@ exports[`main page correctly renders after relaunch 1`] = `
       <div
         className="user-block"
       >
-        <div
-          className="user-block__avatar"
+        <a
+          href="/mylist"
+          onClick={[Function]}
         >
-          <img
-            alt="User avatar"
-            height="63"
-            src="https://htmlacademy-react-2.appspot.comavatara"
-            width="63"
-          />
-        </div>
+          <div
+            className="user-block__avatar"
+          >
+            <img
+              alt="User avatar"
+              height="63"
+              src="https://htmlacademy-react-2.appspot.comavatara"
+              width="63"
+            />
+          </div>
+        </a>
       </div>
     </header>
     <div
@@ -69,9 +74,9 @@ exports[`main page correctly renders after relaunch 1`] = `
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Seven Years in Tibet"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="https://es31-server.appspot.com/wtw/static/film/poster/Seven_Years_in_Tibet.jpg"
             width="218"
           />
         </div>
@@ -81,7 +86,7 @@ exports[`main page correctly renders after relaunch 1`] = `
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest Hotel
+            Seven Years in Tibet
           </h2>
           <p
             className="movie-card__meta"
@@ -89,12 +94,12 @@ exports[`main page correctly renders after relaunch 1`] = `
             <span
               className="movie-card__genre"
             >
-              Drama
+              Adventure
             </span>
             <span
               className="movie-card__year"
             >
-              2014
+              1997
             </span>
           </p>
           <div
@@ -102,6 +107,7 @@ exports[`main page correctly renders after relaunch 1`] = `
           >
             <button
               className="btn btn--play movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -119,6 +125,7 @@ exports[`main page correctly renders after relaunch 1`] = `
             </button>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg

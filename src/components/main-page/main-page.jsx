@@ -4,16 +4,29 @@ import {connect} from 'react-redux';
 import ActionCreator from "../../reducer/actions/actions";
 import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from "../../reducer/selectors/selectors";
 import ShowMore from '../show-more/show-more';
+import {Link} from 'react-router-dom';
 
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
 const MainPage = (props) => {
-  const {films, genres, selectedGenre, onGenreSelect, isShowMoreVisible, onShowMoreClick, isAuthorizationRequired, userData} = props;
+  const {films,
+    genres,
+    selectedGenre,
+    onGenreSelect,
+    isShowMoreVisible,
+    onShowMoreClick,
+    isAuthorizationRequired,
+    userData,
+    onPostFavorite,
+    promo,
+    onOpenCloseFilm
+  } = props;
+
   return (
     <div>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={promo.previewImage} alt={promo.movieTitle} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -29,7 +42,7 @@ const MainPage = (props) => {
             </div>
 
             <div className="user-block">
-              <a href="sign-in.html" className="user-block__link">Sign in</a>
+              <Link to={`/login`} className="user-block__link">Sign in</Link>
             </div>
           </header>
           :
@@ -43,9 +56,11 @@ const MainPage = (props) => {
             </div>
 
             <div className="user-block">
-              <div className="user-block__avatar">
-                <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
-              </div>
+              <Link to={`/mylist`}>
+                <div className="user-block__avatar">
+                  <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+                </div>
+              </Link>
             </div>
           </header>
         }
@@ -53,27 +68,37 @@ const MainPage = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={promo.movieImg} alt={promo.movieTitle} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title">{promo.movieTitle}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">Drama</span>
-                <span className="movie-card__year">2014</span>
+                <span className="movie-card__genre">{promo.genre}</span>
+                <span className="movie-card__year">{promo.released}</span>
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
+                <button
+                  className="btn btn--play movie-card__button"
+                  type="button"
+                  onClick={() => onOpenCloseFilm(true)}
+                >
+                  <svg viewBox="0 0 19 19" width="19" height="19" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
+                <button
+                  className="btn btn--list movie-card__button"
+                  type="button"
+                  onClick={() => isAuthorizationRequired ? <Link to={`/login`}>Sign in</Link> : onPostFavorite(promo.id, promo.isFavorite, true)}
+                >
+                  {promo.isFavorite ? <svg viewBox="0 0 18 14" width="18" height="14">
+                    <use xlinkHref="#in-list"></use>
+                  </svg> : <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
-                  </svg>
+                  </svg>}
                   <span>My list</span>
                 </button>
               </div>
@@ -81,6 +106,7 @@ const MainPage = (props) => {
           </div>
         </div>
       </section>
+
 
       <div className="page-content">
         <section className="catalog">
@@ -120,7 +146,7 @@ const mapStateToProps = (state) => ({
   selectedGenre: getSelectedGenre(state),
   films: getAllowedAmountOfCards(state),
   genres: getUniqueGenres(state),
-  isShowMoreVisible: areMoviesLeftToShow(state)
+  isShowMoreVisible: areMoviesLeftToShow(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -135,9 +161,23 @@ const mapDispatchToProps = (dispatch) => ({
 
 MainPage.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
     movieTitle: PropTypes.string.isRequired,
     movieImg: PropTypes.string.isRequired,
+    previewImage: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    scoresCount: PropTypes.number.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.array.isRequired,
+    runtime: PropTypes.number.isRequired,
+    genre: PropTypes.string.isRequired,
+    released: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    videoLink: PropTypes.string.isRequired,
+    previewVideoLink: PropTypes.string.isRequired,
   })),
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedGenre: PropTypes.string.isRequired,
@@ -150,6 +190,27 @@ MainPage.propTypes = {
     name: PropTypes.string,
     email: PropTypes.string,
     avatarUrl: PropTypes.string,
+  }),
+  onPostFavorite: PropTypes.func.isRequired,
+  onOpenCloseFilm: PropTypes.func,
+  promo: PropTypes.shape({
+    movieTitle: PropTypes.string,
+    movieImg: PropTypes.string,
+    previewImage: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    description: PropTypes.string,
+    rating: PropTypes.number,
+    scoresCount: PropTypes.number,
+    director: PropTypes.string,
+    starring: PropTypes.array,
+    runtime: PropTypes.number,
+    genre: PropTypes.string,
+    released: PropTypes.number,
+    id: PropTypes.number,
+    isFavorite: PropTypes.bool,
+    videoLink: PropTypes.string,
+    previewVideoLink: PropTypes.string,
   }),
 };
 

@@ -15,7 +15,6 @@ const withMovieList = (Component) =>
 
     handleClick(activeMovie) {
       this.setState({activeCard: activeMovie});
-      location.assign(`/details#${activeMovie.id}`);
     }
 
     render() {

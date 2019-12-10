@@ -1,4 +1,5 @@
-import {SET_SELECTED_GENRE, SET_CARDS_SHOWN_AMOUNT, RESET_SHOWN_CARDS, LOAD_MOVIES, REQUIRED_AUTHORIZATION, SAVE_USER_DATA} from "../constants";
+import {SET_SELECTED_GENRE, SET_CARDS_SHOWN_AMOUNT, RESET_SHOWN_CARDS, LOAD_MOVIES, REQUIRED_AUTHORIZATION,
+  SAVE_USER_DATA, LOAD_PROMO, UPDATE_PROMO, CHANGE_ACTIVE_STATUS} from "../constants";
 
 const ActionCreator = {
   setSelectedGenre: (genre) => ({
@@ -16,6 +17,14 @@ const ActionCreator = {
     type: LOAD_MOVIES,
     payload: movies
   }),
+  loadPromo: (movie) => ({
+    type: LOAD_PROMO,
+    payload: movie,
+  }),
+  updatePromo: (movie) => ({
+    type: UPDATE_PROMO,
+    payload: movie,
+  }),
   saveUserData: (userData) => ({
     type: SAVE_USER_DATA,
     payload: userData
@@ -24,7 +33,10 @@ const ActionCreator = {
     type: REQUIRED_AUTHORIZATION,
     payload: bool
   }),
-
+  onOpenCloseFilm: (status) => ({
+    type: CHANGE_ACTIVE_STATUS,
+    payload: status,
+  }),
 };
 
 export default ActionCreator;

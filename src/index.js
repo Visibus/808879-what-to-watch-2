@@ -1,11 +1,13 @@
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
-import {reducer, Operation} from './/reducer/reducers';
+import {reducer} from './/reducer/reducers';
+import apiDispatcher from ".//reducer/api-dispatcher/api-dispatcher";
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 import {compose} from "recompose";
 import createAPI from "./api";
+import {BrowserRouter} from "react-router-dom";
 
 const init = () => {
 
@@ -21,11 +23,14 @@ const init = () => {
       )
   );
 
-  store.dispatch(Operation.loadMovies());
+  store.dispatch(apiDispatcher.loadMovies());
+  store.dispatch(apiDispatcher.loadPromoMovie());
 
   ReactDOM.render(
       <Provider store={store}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Provider>,
       document.querySelector(`#root`)
   );

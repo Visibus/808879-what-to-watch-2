@@ -22,7 +22,6 @@ class VideoPlayer extends React.PureComponent {
 
     if (video) {
       if (isPlaying) {
-        video.src = src;
         video.play();
       } else {
         video.pause();

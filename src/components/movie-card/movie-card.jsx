@@ -1,5 +1,6 @@
 import VideoPlayer from "../video-player/video-player";
 import withMovieCard from "../../hocs/with-movie-card/with-movie-card";
+import {Link} from 'react-router-dom';
 
 const MovieCard = (props) => {
 
@@ -18,19 +19,20 @@ const MovieCard = (props) => {
       onMouseEnter={onMovieEnter}
       onMouseLeave={onMovieLeave}
     >
-      <div className="small-movie-card__image">
-        <VideoPlayer
-          src={previewVideoLink}
-          poster={previewImage}
-          muted={true}
-          width={280}
-          height={175}
-          isPlaying={isPlaying}
-        />
-
-      </div>
+      <Link to={`/films/${id}`}>
+        <div className="small-movie-card__image">
+          <VideoPlayer
+            src={previewVideoLink}
+            poster={previewImage}
+            muted={true}
+            width={280}
+            height={175}
+            isPlaying={isPlaying}
+          />
+        </div>
+      </Link>
       <h3 className="small-movie-card__title">
-        <a onClick={onTitleClick} className="small-movie-card__link" href={`/details#${id}`}>{movieTitle}</a>
+        <Link to={`/films/${id}`} onClick={onTitleClick} className="small-movie-card__link">{movieTitle}</Link>
       </h3>
     </article>
   );

@@ -10,6 +10,8 @@ it(`renders correctly`, () => {
         isAuthorizationRequired={false}
         userData={{}}
         onOpenCloseFilm={jest.fn()}
+        comments={[]}
+        onPostFavorite={jest.fn()}
       />
       </BrowserRouter>
   ).toJSON();

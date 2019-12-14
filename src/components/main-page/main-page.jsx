@@ -5,6 +5,7 @@ import ActionCreator from "../../reducer/actions/actions";
 import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from "../../reducer/selectors/selectors";
 import ShowMore from '../show-more/show-more';
 import {Link} from 'react-router-dom';
+import {filmsTypes, userDataTypes, promoMovieTypes} from "../../types/types";
 
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
@@ -19,7 +20,8 @@ const MainPage = (props) => {
     userData,
     onPostFavorite,
     promo,
-    onOpenCloseFilm
+    onOpenCloseFilm,
+    history,
   } = props;
 
   return (
@@ -79,28 +81,41 @@ const MainPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button
-                  className="btn btn--play movie-card__button"
-                  type="button"
-                  onClick={() => onOpenCloseFilm(true)}
-                >
-                  <svg viewBox="0 0 19 19" width="19" height="19" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                <button className="btn btn--play movie-card__button" type="button" onClick={() => {
+                  onOpenCloseFilm(true);
+                }}>
+                  <svg viewboxname="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button
-                  className="btn btn--list movie-card__button"
-                  type="button"
-                  onClick={() => isAuthorizationRequired ? <Link to={`/login`}>Sign in</Link> : onPostFavorite(promo.id, promo.isFavorite, true)}
-                >
-                  {promo.isFavorite ? <svg viewBox="0 0 18 14" width="18" height="14">
-                    <use xlinkHref="#in-list"></use>
-                  </svg> : <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>}
-                  <span>My list</span>
-                </button>
+                {
+                  promo.isFavorite ?
+                    <button className="btn btn--list movie-card__button" type="button" onClick={() => {
+                      if (!isAuthorizationRequired) {
+                        onPostFavorite(promo.id, promo.isFavorite, true);
+                      } else {
+                        history.push(`/login`);
+                      }
+                    }}>
+                      <svg viewBox="0 0 18 14" width="18" height="14">
+                        <use xlinkHref="#in-list"></use>
+                      </svg>
+                      <span>My list</span>
+                    </button>
+                    : <button className="btn btn--list movie-card__button" type="button" onClick={() => {
+                      if (!isAuthorizationRequired) {
+                        onPostFavorite(promo.id, promo.isFavorite, true);
+                      } else {
+                        history.push(`/login`);
+                      }
+                    }}>
+                      <svg viewBox="0 0 19 20" width="19" height="20">
+                        <use xlinkHref="#add"></use>
+                      </svg>
+                      <span>My list</span>
+                    </button>
+                }
               </div>
             </div>
           </div>
@@ -160,57 +175,19 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 MainPage.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    movieImg: PropTypes.string.isRequired,
-    previewImage: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    scoresCount: PropTypes.number.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.array.isRequired,
-    runtime: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired,
-    released: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-    videoLink: PropTypes.string.isRequired,
-    previewVideoLink: PropTypes.string.isRequired,
-  })),
+  films: filmsTypes,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onGenreSelect: PropTypes.func.isRequired,
   isShowMoreVisible: PropTypes.bool.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
   isAuthorizationRequired: PropTypes.bool.isRequired,
-  userData: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    email: PropTypes.string,
-    avatarUrl: PropTypes.string,
-  }),
+  userData: userDataTypes,
   onPostFavorite: PropTypes.func.isRequired,
   onOpenCloseFilm: PropTypes.func,
-  promo: PropTypes.shape({
-    movieTitle: PropTypes.string,
-    movieImg: PropTypes.string,
-    previewImage: PropTypes.string,
-    backgroundImage: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    description: PropTypes.string,
-    rating: PropTypes.number,
-    scoresCount: PropTypes.number,
-    director: PropTypes.string,
-    starring: PropTypes.array,
-    runtime: PropTypes.number,
-    genre: PropTypes.string,
-    released: PropTypes.number,
-    id: PropTypes.number,
-    isFavorite: PropTypes.bool,
-    videoLink: PropTypes.string,
-    previewVideoLink: PropTypes.string,
+  promo: promoMovieTypes,
+  history: PropTypes.shape({
+    push: PropTypes.func
   }),
 };
 

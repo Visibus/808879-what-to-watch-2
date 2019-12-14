@@ -80,6 +80,37 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
+  it(`Reducer correctly change idSelectedMovie`, () => {
+    expect(
+        reducer(
+            {
+              idSelectedMovie: 1,
+            },
+            {
+              type: `CHANGE_SELECTED_MOVIE`,
+              payload: 2,
+            }
+        )
+    ).toEqual({
+      idSelectedMovie: 2,
+    });
+  });
+
+  it(`Reducer correctly change errorLoadingReview`, () => {
+    expect(
+        reducer(
+            {
+              errorLoadingReview: ``,
+            },
+            {
+              type: `UPLOAD_REVIEW`,
+              payload: `Error 403`,
+            }
+        )
+    ).toEqual({
+      errorLoadingReview: `Error 403`,
+    });
+  });
 
 });
 

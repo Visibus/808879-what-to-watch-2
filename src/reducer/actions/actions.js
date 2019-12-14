@@ -1,41 +1,68 @@
-import {SET_SELECTED_GENRE, SET_CARDS_SHOWN_AMOUNT, RESET_SHOWN_CARDS, LOAD_MOVIES, REQUIRED_AUTHORIZATION,
-  SAVE_USER_DATA, LOAD_PROMO, UPDATE_PROMO, CHANGE_ACTIVE_STATUS} from "../constants";
+import Action from "../constants";
 
 const ActionCreator = {
   setSelectedGenre: (genre) => ({
-    type: SET_SELECTED_GENRE,
+    type: Action.SET_SELECTED_GENRE,
     payload: genre
   }),
   setCardsShownAmount: (amount) => ({
-    type: SET_CARDS_SHOWN_AMOUNT,
+    type: Action.SET_CARDS_SHOWN_AMOUNT,
     payload: amount
   }),
   resetShownCards: () => ({
-    type: RESET_SHOWN_CARDS,
+    type: Action.RESET_SHOWN_CARDS,
   }),
   loadMovies: (movies) => ({
-    type: LOAD_MOVIES,
+    type: Action.LOAD_MOVIES,
     payload: movies
   }),
   loadPromo: (movie) => ({
-    type: LOAD_PROMO,
+    type: Action.LOAD_PROMO,
     payload: movie,
   }),
   updatePromo: (movie) => ({
-    type: UPDATE_PROMO,
+    type: Action.UPDATE_PROMO,
     payload: movie,
   }),
   saveUserData: (userData) => ({
-    type: SAVE_USER_DATA,
+    type: Action.SAVE_USER_DATA,
     payload: userData
   }),
   requiredAuthorization: (bool) => ({
-    type: REQUIRED_AUTHORIZATION,
+    type: Action.REQUIRED_AUTHORIZATION,
     payload: bool
   }),
   onOpenCloseFilm: (status) => ({
-    type: CHANGE_ACTIVE_STATUS,
+    type: Action.CHANGE_ACTIVE_STATUS,
     payload: status,
+  }),
+  loadComments: (comments) => ({
+    type: Action.LOAD_COMMENTS,
+    payload: comments,
+  }),
+  changeSelectedMovie: (id) => ({
+    type: Action.CHANGE_SELECTED_MOVIE,
+    payload: id,
+  }),
+  blockForm: (bool) => ({
+    type: Action.BLOCK_FORM,
+    payload: bool,
+  }),
+  cleanForm: (bool) => ({
+    type: Action.CLEAN_FORM,
+    payload: bool,
+  }),
+  loadFavoriteMovies: (favorites) => ({
+    type: Action.LOAD_FAVORITE_MOVIES,
+    payload: favorites,
+  }),
+  addToFavoriteMovies: (movie) => ({
+    type: Action.ADD_TO_FAVORITE_MOVIES,
+    payload: movie,
+  }),
+  deleteFromFavoriteMovies: (movie) => ({
+    type: Action.DELETE_FROM_FAVORITE_MOVIES,
+    payload: movie,
   }),
 };
 

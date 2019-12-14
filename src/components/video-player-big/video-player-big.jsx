@@ -1,5 +1,6 @@
 import {MIN_PROCENT, MAX_PROCENT, timeToString} from "../../helpers/helpers";
-import withVideoPlayerBig from "..//..//hocs/with-video-player-big/with-video-player-big";
+import withVideoPlayerBig from "../../hocs/with-video-player-big/with-video-player-big";
+import {filmTypes} from "../../types/types";
 
 const VideoPlayerBig = (props) => {
   const {
@@ -70,25 +71,7 @@ const VideoPlayerBig = (props) => {
 };
 
 VideoPlayerBig.propTypes = {
-  movieWatch: PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    movieImg: PropTypes.string.isRequired,
-    previewImage: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    scoresCount: PropTypes.number.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.array.isRequired,
-    runtime: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired,
-    released: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-    videoLink: PropTypes.string.isRequired,
-    previewVideoLink: PropTypes.string.isRequired,
-  }).isRequired,
+  movieWatch: filmTypes,
 
   isLoading: PropTypes.bool.isRequired,
   isPlaying: PropTypes.bool.isRequired,
@@ -106,4 +89,6 @@ VideoPlayerBig.propTypes = {
   onOpenCloseFilm: PropTypes.func,
 };
 
+export {VideoPlayerBig};
 export default withVideoPlayerBig(VideoPlayerBig);
+

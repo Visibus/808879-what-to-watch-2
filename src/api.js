@@ -14,7 +14,7 @@ const createAPI = (dispatch) => {
   const onFail = (err) => {
     if (err.response.status === ERROR_AUTHORIZATION) {
       dispatch(ActionCreator.requiredAuthorization(true));
-      // history.push(`/login`);
+      history.push(`/login`);
     }
     return err;
   };

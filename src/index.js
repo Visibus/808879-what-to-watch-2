@@ -7,7 +7,10 @@ import {Provider} from 'react-redux';
 import thunk from "redux-thunk";
 import {compose} from "recompose";
 import createAPI from "./api";
-import {BrowserRouter} from "react-router-dom";
+import {createBrowserHistory} from "history";
+import {Router} from "react-router-dom";
+
+const history = createBrowserHistory();
 
 const init = () => {
 
@@ -28,9 +31,9 @@ const init = () => {
 
   ReactDOM.render(
       <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <Router history={history}>
+          <App history={history} />
+        </Router>
       </Provider>,
       document.querySelector(`#root`)
   );

@@ -63,6 +63,86 @@ describe(`Api-dspatcher works correctly`, () => {
       });
   });
 
+  it(`Action creator correctly load comments`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const loadComments = apiDispatcher.loadComments(1);
+
+    apiMock
+      .onGet(`comments/1`)
+      .reply(200, [{fake: true}]);
+
+    return loadComments(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: `LOAD_COMMENTS`,
+          payload: [{fake: true}],
+        });
+      });
+  });
+
+  it(`should make correct API POST call to /favorite/:id/1`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const favoritePoster = apiDispatcher.postFavorite(1, false, false);
+
+    apiMock
+      .onPost(`/favorite/1/1`)
+      .reply(200, {fakeFilm: true, isFavorite: true});
+
+    return favoritePoster(dispatch, {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: `ADD_TO_FAVORITE_MOVIES`,
+          payload: {fakeFilm: true, isFavorite: true},
+        });
+      });
+  });
+
+  it(`should make correct API POST call to /favorite/:id/0`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const favoritePoster = apiDispatcher.postFavorite(1, true, false);
+
+    apiMock
+      .onPost(`/favorite/1/0`)
+      .reply(200, {fakeFilm: true, isFavorite: false});
+
+    return favoritePoster(dispatch, {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: `DELETE_FROM_FAVORITE_MOVIES`,
+          payload: {fakeFilm: true, isFavorite: false},
+        });
+      });
+  });
+
+  it(`Action creator correctly load favorite films`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const loadFavoriteFilms = apiDispatcher.loadFavoriteMovies();
+
+    apiMock
+      .onGet(`favorite`)
+      .reply(200, [{fake: true}]);
+
+    return loadFavoriteFilms(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: `LOAD_FAVORITE_MOVIES`,
+          payload: [{fake: true}],
+        });
+      });
+  });
+
 });
 
 

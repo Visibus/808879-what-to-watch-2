@@ -48,7 +48,7 @@ const withSignIn = (Component) => {
   }
 
   WithSignIn.propTypes = {
-    onSubmitSignIn: PropTypes.func.isRequired,
+    onSubmitSignIn: PropTypes.func,
   };
 
   return WithSignIn;

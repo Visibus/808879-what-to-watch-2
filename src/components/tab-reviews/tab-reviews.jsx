@@ -1,6 +1,6 @@
 import {formatDate, convertToISODate, formatRating} from "..//../helpers/helpers";
 import {commentsTypes} from "../../types/types";
-import moment from 'moment';
+import moment from "moment";
 
 const TabReviews = (props) => {
   const {currentTab, indexTab, comments} = props;

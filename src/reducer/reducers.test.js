@@ -112,6 +112,22 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
+  it(`Reducer correctly change erorLogin`, () => {
+    expect(
+        reducer(
+            {
+              errorLogin: `error login`,
+            },
+            {
+              type: `SET_ERROR_LOGIN`,
+              payload: `error login`
+            }
+        )
+    ).toEqual({
+      errorLogin: `error login`,
+    });
+  });
+
 });
 
 

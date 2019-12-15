@@ -2,7 +2,7 @@ import App from "./app";
 import films from "../../mocks/films";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from "react-router-dom";
 
 const store = createStore(() => ({
   selectedGenre: `All genres`,
@@ -16,6 +16,7 @@ const store = createStore(() => ({
   isFavoriteActually: false,
   favorites: [],
   errorLoadingReview: ``,
+  errorLogin: ``,
 }));
 
 const userData = {

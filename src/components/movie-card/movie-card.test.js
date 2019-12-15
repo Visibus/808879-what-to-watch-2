@@ -1,5 +1,5 @@
 import MovieCard from "./movie-card";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from "react-router-dom";
 
 const films = [{
   id: 4,

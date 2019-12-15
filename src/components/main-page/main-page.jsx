@@ -1,10 +1,10 @@
 import MoviesList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
-import {connect} from 'react-redux';
+import {connect} from "react-redux";
 import ActionCreator from "../../reducer/actions/actions";
 import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from "../../reducer/selectors/selectors";
-import ShowMore from '../show-more/show-more';
-import {Link} from 'react-router-dom';
+import ShowMore from "../show-more/show-more";
+import {Link} from "react-router-dom";
 import {filmsTypes, userDataTypes, promoMovieTypes} from "../../types/types";
 
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;

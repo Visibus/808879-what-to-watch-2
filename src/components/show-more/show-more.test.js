@@ -1,4 +1,4 @@
-import ShowMore from './show-more';
+import ShowMore from "./show-more";
 
 it(`renders correctly`, () => {
   const tree = window.renderer

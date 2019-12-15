@@ -1,6 +1,6 @@
 import apiDispatcher from "./api-dispatcher";
 
-import createAPI from '../../api';
+import createAPI from "../../api";
 import MockAdapter from "axios-mock-adapter";
 
 describe(`Api-dspatcher works correctly`, () => {

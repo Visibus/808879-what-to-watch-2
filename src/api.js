@@ -1,10 +1,10 @@
 import axios from "axios";
-import ActionCreator from './reducer/actions/actions';
-import {TIMER_AXIOS, ERROR_AUTHORIZATION} from "./helpers/helpers";
+import ActionCreator from "./reducer/actions/actions";
+import {TIMER_AXIOS, ERROR_AUTHORIZATION, BASE_URL} from "./helpers/helpers";
 
 const createAPI = (dispatch) => {
   const api = axios.create({
-    baseURL: `https://htmlacademy-react-2.appspot.com/wtw`,
+    baseURL: BASE_URL,
     timeout: TIMER_AXIOS,
     withCredentials: true
   });

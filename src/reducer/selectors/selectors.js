@@ -1,4 +1,4 @@
-import {createSelector} from 'reselect';
+import {createSelector} from "reselect";
 
 const getSelectedGenre = (state) => {
   return state.selectedGenre;

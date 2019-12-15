@@ -1,6 +1,6 @@
 import MainPage from "../main-page/main-page";
 import MoviePageDetails from "../movie-page-details/movie-page-details";
-import {connect} from 'react-redux';
+import {connect} from "react-redux";
 import apiDispatcher from "../../reducer/api-dispatcher/api-dispatcher";
 import ActionCreator from "../../reducer/actions/actions";
 import SignIn from "../../components/sign-in/sign-in";
@@ -15,7 +15,8 @@ import NotFound from "../not-found/not-found";
 
 const App = (props) => {
   const {films, isAuthorizationRequired, onSubmitSignIn, userData, promo, onPostFavorite, isFilmPlaying,
-    onOpenCloseFilm, comments, onLoadComments, onChangeSelectedMovie, idSelectedMovie, onLoadFavorites, isFavoriteActually, favorites, history} = props;
+    onOpenCloseFilm, comments, onLoadComments, onChangeSelectedMovie, idSelectedMovie, onLoadFavorites, isFavoriteActually,
+    favorites, history, errorLogin} = props;
 
   return <Switch>
     <Route path="/" exact render={() => {
@@ -34,7 +35,11 @@ const App = (props) => {
     }}
     />
     <Route path="/login" exact render={() => {
-      return <SignIn onSubmitSignIn={onSubmitSignIn} isAuthorizationRequired={isAuthorizationRequired} />;
+      return <SignIn
+        onSubmitSignIn={onSubmitSignIn}
+        isAuthorizationRequired={isAuthorizationRequired}
+        errorLogin={errorLogin}
+      />;
     }}
     />
     <Route path="/films/:id" exact render={(propsMovie) => {
@@ -107,6 +112,7 @@ const mapStateToProps = (state) => ({
   idSelectedMovie: state.idSelectedMovie,
   isFavoriteActually: state.isFavoriteActually,
   favorites: state.favorites,
+  errorLogin: state.errorLogin,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -151,6 +157,7 @@ App.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }),
+  errorLogin: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

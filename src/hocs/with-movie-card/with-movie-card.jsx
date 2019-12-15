@@ -1,3 +1,5 @@
+import {DELAY_PLAYER_PREVIEW} from "../../helpers/helpers";
+
 const withMovieCard = (Component) =>
   class WithMovieCard extends React.PureComponent {
     constructor(props) {
@@ -8,7 +10,7 @@ const withMovieCard = (Component) =>
       };
 
       this.timerId = null;
-      this.DELAY = 1000;
+      this.DELAY = DELAY_PLAYER_PREVIEW;
 
       this.handleMovieCardEnter = this.handleMovieCardEnter.bind(this);
       this.handleMovieCardLeave = this.handleMovieCardLeave.bind(this);

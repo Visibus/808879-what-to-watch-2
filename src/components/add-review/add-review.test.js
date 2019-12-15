@@ -1,10 +1,8 @@
-import React from "react";
-import renderer from "react-test-renderer";
 import AddReview from "./add-review";
 import films from "../../mocks/films.js";
 
 it(`AddReview renders correctly`, () => {
-  const tree = renderer.create(
+  const tree = window.renderer.create(
       <AddReview
         films={films}
         initialFilms={films}

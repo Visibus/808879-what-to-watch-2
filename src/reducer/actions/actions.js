@@ -64,6 +64,10 @@ const ActionCreator = {
     type: Action.DELETE_FROM_FAVORITE_MOVIES,
     payload: movie,
   }),
+  setErrorLogin: (error) => ({
+    type: Action.SET_ERROR_LOGIN,
+    payload: error,
+  }),
 };
 
 export default ActionCreator;

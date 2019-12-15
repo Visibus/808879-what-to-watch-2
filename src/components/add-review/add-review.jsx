@@ -1,5 +1,5 @@
 import {filmsTypes, userDataTypes} from "../../types/types";
-import {Link} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 const AddReview = (props) => {
   const {films, id, userData, error, isFormValid, onChange, onSubmit, errorLoadingReview, isBlocking} = props;

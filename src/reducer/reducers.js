@@ -19,6 +19,7 @@ export const initialState = {
   isFavoriteActually: false,
   favorites: [],
   errorLoadingReview: ``,
+  errorLogin: ``,
 };
 
 const reducer = (state = initialState, action) => {
@@ -86,6 +87,10 @@ const reducer = (state = initialState, action) => {
     case Action.UPLOAD_REVIEW:
       return Object.assign({}, state, {
         errorLoadingReview: action.payload,
+      });
+    case Action.SET_ERROR_LOGIN:
+      return Object.assign({}, state, {
+        errorLogin: action.payload,
       });
 
     default:

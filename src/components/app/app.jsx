@@ -1,14 +1,22 @@
 import MainPage from "../main-page/main-page";
 import MoviePageDetails from "../movie-page-details/movie-page-details";
-import {connect} from 'react-redux';
+import {connect} from "react-redux";
 import apiDispatcher from "../../reducer/api-dispatcher/api-dispatcher";
 import ActionCreator from "../../reducer/actions/actions";
 import SignIn from "../../components/sign-in/sign-in";
 import {Switch, Route} from "react-router-dom";
 import VideoPlayerBig from "../../components/video-player-big/video-player-big";
+import withAuth from "../../hocs/with-auth/with-auth";
+import AddReview from "../add-review/add-review";
+import WatchList from "../watch-list/watch-list";
+import withFormSubmit from "../../hocs/with-form-submit/with-form-submit";
+import {filmsTypes, userDataTypes, commentsTypes, promoMovieTypes} from "../../types/types";
+import NotFound from "../not-found/not-found";
 
 const App = (props) => {
-  const {films, isAuthorizationRequired, onSubmitSignIn, userData, promo, onPostFavorite, isFilmPlaying, onOpenCloseFilm} = props;
+  const {films, isAuthorizationRequired, onSubmitSignIn, userData, promo, onPostFavorite, isFilmPlaying,
+    onOpenCloseFilm, comments, onLoadComments, onChangeSelectedMovie, idSelectedMovie, onLoadFavorites, isFavoriteActually,
+    favorites, history, errorLogin} = props;
 
   return <Switch>
     <Route path="/" exact render={() => {
@@ -18,22 +26,31 @@ const App = (props) => {
           isAuthorizationRequired={isAuthorizationRequired}
           userData={userData}
           promo = {promo}
+          onChangeSelectedMovie
           onPostFavorite={onPostFavorite}
           onOpenCloseFilm={onOpenCloseFilm}
+          history={history}
         /> :
         <VideoPlayerBig movieWatch={promo} onOpenCloseFilm={onOpenCloseFilm} />;
     }}
     />
     <Route path="/login" exact render={() => {
-      return <SignIn onSubmitSignIn={onSubmitSignIn} isAuthorizationRequired={isAuthorizationRequired} />;
+      return <SignIn
+        onSubmitSignIn={onSubmitSignIn}
+        isAuthorizationRequired={isAuthorizationRequired}
+        errorLogin={errorLogin}
+      />;
     }}
     />
     <Route path="/films/:id" exact render={(propsMovie) => {
-      if (!films.length) {
-        return null;
-      }
+
       const id = parseInt(propsMovie.match.params.id, 10);
-      const activeMovie = films.find((film)=> +film.id === +id);
+      onChangeSelectedMovie(id);
+      if ((idSelectedMovie !== id) || (comments === null)) {
+        onLoadComments(id);
+      }
+
+      const activeMovie = films.find((film)=> +film.id === +idSelectedMovie);
       const moreLikeThisFilms = films.filter((film) => film.genre === activeMovie.genre && film.id !== activeMovie.id).slice(0, 4);
       return !isFilmPlaying ?
         <MoviePageDetails
@@ -41,9 +58,43 @@ const App = (props) => {
           moreLikeThisFilms={moreLikeThisFilms}
           isAuthorizationRequired = {isAuthorizationRequired}
           userData={userData}
+          onPostFavorite={onPostFavorite}
           onOpenCloseFilm={onOpenCloseFilm}
+          comments={comments || []}
+          history={history}
         /> :
         <VideoPlayerBig movieWatch={activeMovie} onOpenCloseFilm={onOpenCloseFilm} />;
+    }}
+    />
+    <Route path="/film/:id/review" exact render={(propsMovie) => {
+      const id = parseInt(propsMovie.match.params.id, 10);
+      onChangeSelectedMovie(id);
+      const AddReviewWrapped = withAuth(withFormSubmit(AddReview));
+      return <AddReviewWrapped
+        {...propsMovie}
+        isAuthorizationRequired={isAuthorizationRequired}
+        films={films}
+        userData={userData}
+        id={id}
+        history={history}
+      />;
+    }}
+    />
+    <Route path="/mylist" exact render={() => {
+      const WatchListWrapped = withAuth(WatchList);
+      if (!isFavoriteActually) {
+        onLoadFavorites();
+      }
+      return <WatchListWrapped
+        isAuthorizationRequired={isAuthorizationRequired}
+        userData={userData}
+        films={favorites}
+        onOpenCloseFilm={onOpenCloseFilm}
+      />;
+    }}
+    />
+    <Route render={() => {
+      return <NotFound />;
     }}
     />
   </Switch>;
@@ -55,9 +106,13 @@ const mapStateToProps = (state) => ({
   films: state.movies,
   isAuthorizationRequired: state.isAuthorizationRequired,
   userData: state.userData,
-  selectedMovie: state.selectedMovie,
   promo: state.promo,
   isFilmPlaying: state.isFilmPlaying,
+  comments: state.comments,
+  idSelectedMovie: state.idSelectedMovie,
+  isFavoriteActually: state.isFavoriteActually,
+  favorites: state.favorites,
+  errorLogin: state.errorLogin,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -70,59 +125,39 @@ const mapDispatchToProps = (dispatch) => ({
   onOpenCloseFilm: (status) => {
     dispatch(ActionCreator.onOpenCloseFilm(status));
   },
+  onLoadComments: (id) => {
+    dispatch(apiDispatcher.loadComments(id));
+  },
+  onChangeSelectedMovie: (id) => {
+    dispatch(ActionCreator.changeSelectedMovie(id));
+  },
+
+  onLoadFavorites: () => {
+    dispatch(apiDispatcher.loadFavoriteMovies());
+  },
 });
 
 
 App.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    movieImg: PropTypes.string.isRequired,
-    previewImage: PropTypes.string.isRequired,
-    backgroundImage: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    scoresCount: PropTypes.number.isRequired,
-    director: PropTypes.string.isRequired,
-    starring: PropTypes.array.isRequired,
-    runtime: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired,
-    released: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-    videoLink: PropTypes.string.isRequired,
-    previewVideoLink: PropTypes.string.isRequired,
-  })),
+  films: filmsTypes,
+  userData: userDataTypes,
   isAuthorizationRequired: PropTypes.bool.isRequired,
   onSubmitSignIn: PropTypes.func.isRequired,
-  userData: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    email: PropTypes.string,
-    avatarUrl: PropTypes.string,
-  }),
   onPostFavorite: PropTypes.func.isRequired,
   onOpenCloseFilm: PropTypes.func,
   isFilmPlaying: PropTypes.bool.isRequired,
-  promo: PropTypes.shape({
-    movieTitle: PropTypes.string,
-    movieImg: PropTypes.string,
-    previewImage: PropTypes.string,
-    backgroundImage: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    description: PropTypes.string,
-    rating: PropTypes.number,
-    scoresCount: PropTypes.number,
-    director: PropTypes.string,
-    starring: PropTypes.array,
-    runtime: PropTypes.number,
-    genre: PropTypes.string,
-    released: PropTypes.number,
-    id: PropTypes.number,
-    isFavorite: PropTypes.bool,
-    videoLink: PropTypes.string,
-    previewVideoLink: PropTypes.string,
+  idSelectedMovie: PropTypes.number.isRequired,
+  onChangeSelectedMovie: PropTypes.func.isRequired,
+  promo: promoMovieTypes,
+  comments: commentsTypes,
+  onLoadComments: PropTypes.func,
+  onLoadFavorites: PropTypes.func.isRequired,
+  isFavoriteActually: PropTypes.bool.isRequired,
+  favorites: filmsTypes,
+  history: PropTypes.shape({
+    push: PropTypes.func
   }),
+  errorLogin: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

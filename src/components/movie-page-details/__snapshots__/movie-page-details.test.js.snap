@@ -121,6 +121,7 @@ exports[`renders correctly 1`] = `
             </button>
             <button
               className="btn btn--list movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -138,7 +139,8 @@ exports[`renders correctly 1`] = `
             </button>
             <a
               className="btn movie-card__button"
-              href="add-review.html"
+              href="/film/1/review"
+              onClick={[Function]}
             >
               Add review
             </a>
@@ -237,7 +239,9 @@ exports[`renders correctly 1`] = `
                 <span
                   className="movie-card__details-value"
                 >
-                  Brad Pitt, David Thewlis, BD Wong
+                  Brad Pitt,
+David Thewlis,
+BD Wong
                 </span>
               </p>
             </div>

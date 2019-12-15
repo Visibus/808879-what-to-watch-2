@@ -1,7 +1,7 @@
 import withSignIn from "../../hocs/with-sign-in/with-sign-in";
-import {Redirect} from 'react-router-dom';
+import {Redirect} from "react-router-dom";
 
-const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn, isAuthorizationRequired}) => {
+const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn, isAuthorizationRequired, errorLogin}) => {
   return isAuthorizationRequired ? (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -18,6 +18,11 @@ const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUser
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form" onSubmit={onSubmitSignIn}>
+          {(errorLogin.length > 0) ?
+            <div className="sign-in__message">
+              <p>{errorLogin}</p>
+            </div> : ``
+          }
           <div className="sign-in__fields">
             <div className="sign-in__field">
               <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" value={userEmail} onChange={onChangeUserEmailHandler} />
@@ -58,6 +63,7 @@ SignIn.propTypes = {
   onChangeUserPasswordHandler: PropTypes.func.isRequired,
   onSubmitSignIn: PropTypes.func.isRequired,
   isAuthorizationRequired: PropTypes.bool.isRequired,
+  errorLogin: PropTypes.string.isRequired,
 };
 
 export default withSignIn(SignIn);

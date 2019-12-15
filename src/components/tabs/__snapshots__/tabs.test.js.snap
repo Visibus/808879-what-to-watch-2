@@ -74,7 +74,9 @@ Array [
         <span
           className="movie-card__details-value"
         >
-          Brad Pitt, David Thewlis, BD Wong
+          Brad Pitt,
+David Thewlis,
+BD Wong
         </span>
       </p>
     </div>

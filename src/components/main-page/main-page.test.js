@@ -2,7 +2,7 @@ import MainPage from "./main-page";
 import films from "../../mocks/films";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from "react-router-dom";
 
 const store = createStore(() => ({
   selectedGenre: `All genres`,

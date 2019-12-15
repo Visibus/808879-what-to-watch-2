@@ -1,9 +1,11 @@
 import Tabs from "../tabs/tabs";
 import MoviesList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
+import {userDataTypes, commentsTypes} from "../../types/types";
+
 
 const MoviePageDetails = (props) => {
-  const {film, moreLikeThisFilms, isAuthorizationRequired, userData, onOpenCloseFilm} = props;
+  const {film, moreLikeThisFilms, isAuthorizationRequired, userData, onOpenCloseFilm, comments, onPostFavorite, history} = props;
   const {
     backgroundColor,
     backgroundImage,
@@ -64,13 +66,34 @@ const MoviePageDetails = (props) => {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                {
+                  film.isFavorite ?
+                    <button className="btn btn--list movie-card__button" type="button" onClick={() => {
+                      if (!isAuthorizationRequired) {
+                        onPostFavorite(film.id, film.isFavorite, false);
+                      } else {
+                        history.push(`/login`);
+                      }
+                    }}>
+                      <svg viewBox="0 0 18 14" width="18" height="14">
+                        <use xlinkHref="#in-list"></use>
+                      </svg>
+                      <span>My list</span>
+                    </button>
+                    : <button className="btn btn--list movie-card__button" type="button" onClick={() => {
+                      if (!isAuthorizationRequired) {
+                        onPostFavorite(film.id, film.isFavorite, false);
+                      } else {
+                        history.push(`/login`);
+                      }
+                    }}>
+                      <svg viewBox="0 0 19 20" width="19" height="20">
+                        <use xlinkHref="#add"></use>
+                      </svg>
+                      <span>My list</span>
+                    </button>
+                }
+                {!isAuthorizationRequired && <Link to={`/film/${film.id}/review`} className="btn movie-card__button">Add review</Link>}
               </div>
             </div>
           </div>
@@ -83,7 +106,7 @@ const MoviePageDetails = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <Tabs film={film} />
+              <Tabs film={film} comments = {comments} />
             </div>
           </div>
         </div>
@@ -136,11 +159,11 @@ MoviePageDetails.propTypes = {
   moreLikeThisFilms: PropTypes.arrayOf(PropTypes.shape(filmPropType)),
   isAuthorizationRequired: PropTypes.bool.isRequired,
   onOpenCloseFilm: PropTypes.func,
-  userData: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    email: PropTypes.string,
-    avatarUrl: PropTypes.string,
+  userData: userDataTypes,
+  comments: commentsTypes,
+  onPostFavorite: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func
   }),
 };
 

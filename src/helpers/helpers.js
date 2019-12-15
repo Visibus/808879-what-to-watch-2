@@ -1,8 +1,13 @@
 export const TIMER_AXIOS = 5000;
 export const ERROR_AUTHORIZATION = 401;
+export const BASE_URL = `https://htmlacademy-react-2.appspot.com/wtw`;
 
 export const MIN_PROCENT = 0;
 export const MAX_PROCENT = 100;
+
+export const WIDTH_PLAYER_PREVIEW = 280;
+export const HEIGHT_PLAYER_PREVIEW = 175;
+export const DELAY_PLAYER_PREVIEW = 1000;
 
 const RATING_BAD = 3;
 const RATING_NORMAL = 5;
@@ -68,5 +73,17 @@ const timeToString = (seconds) => {
   return time;
 };
 
+const getId = (film) => {
+  if (film.id) {
+    return film.id;
+  }
+  return 0;
+};
 
-export {formatRuntime, movieRating, formatDate, convertToISODate, formatRating, timeToString};
+const changeFilm = (films, newFilm) => {
+  return films.map((item) => {
+    return item.id === newFilm.id ? newFilm : item;
+  });
+};
+
+export {formatRuntime, movieRating, formatDate, convertToISODate, formatRating, timeToString, getId, changeFilm};

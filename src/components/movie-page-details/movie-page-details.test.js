@@ -1,6 +1,6 @@
-import MoviePageDetails from './movie-page-details';
-import films from '../../mocks/films';
-import {BrowserRouter} from 'react-router-dom';
+import MoviePageDetails from "./movie-page-details";
+import films from "../../mocks/films";
+import {BrowserRouter} from "react-router-dom";
 
 it(`renders correctly`, () => {
   const tree = window.renderer.create(
@@ -10,6 +10,8 @@ it(`renders correctly`, () => {
         isAuthorizationRequired={false}
         userData={{}}
         onOpenCloseFilm={jest.fn()}
+        comments={[]}
+        onPostFavorite={jest.fn()}
       />
       </BrowserRouter>
   ).toJSON();

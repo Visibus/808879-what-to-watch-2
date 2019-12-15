@@ -3,7 +3,6 @@ import withSignIn from "./with-sign-in";
 
 describe(`withSignin hoc works correctly`, () => {
   let signIn;
-  // let instance;
   const MockComponent = ({email, password, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn}) => (
     <div>
       <form action="#" className="sign-in__form" onSubmit={onSubmitSignIn}>

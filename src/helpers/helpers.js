@@ -1,19 +1,39 @@
-export const TIMER_AXIOS = 5000;
-export const ERROR_AUTHORIZATION = 401;
-export const BASE_URL = `https://htmlacademy-react-2.appspot.com/wtw`;
+export const AXIOS_SETTINGS = {
+  TIMER: 5000,
+  ERROR_AUTHORIZATION: 401,
+  BASE_URL: `https://htmlacademy-react-2.appspot.com/wtw`,
+  BASE_URL_AVATAR: `https://htmlacademy-react-2.appspot.com`,
+};
 
-export const MIN_PROCENT = 0;
-export const MAX_PROCENT = 100;
+export const PLAYER_PERCENT = {
+  MIN: 0,
+  MAX: 100,
+};
 
-export const WIDTH_PLAYER_PREVIEW = 280;
-export const HEIGHT_PLAYER_PREVIEW = 175;
-export const DELAY_PLAYER_PREVIEW = 1000;
+export const PLAYER_PREVIEW = {
+  WIDTH: 280,
+  HEIGHT: 175,
+  DELAY: 1000,
+};
 
-const RATING_BAD = 3;
-const RATING_NORMAL = 5;
-const RATING_GOOD = 8;
-const RATING_VERY_GOOD = 10;
+const RATING = {
+  BAD: 3,
+  NORMAL: 5,
+  GOOD: 8,
+  VERY_GOOD: 10,
+};
 
+const TEXT_RATING = {
+  BAD: `Bad`,
+  NORMAL: `Normal`,
+  GOOD: `Good`,
+  VERY_GOOD: `Very good`,
+  AWESOME: `Awesome`,
+};
+
+export const MOVIE_ALL_GENTRES = `All genres`;
+
+export const COUNT_LIKE_THIS_FILMS = 4;
 const MINUTES_IN_HOUR = 60;
 const SECONDS_IN_MINUTE = 60;
 
@@ -24,20 +44,20 @@ const formatRuntime = (runTime) => {
   return `${h}h ${m}m`;
 };
 
-const movieRating = (rating) => {
-  if (rating < RATING_BAD) {
-    return `Bad`;
+const getMovieRating = (rating) => {
+  if (rating < RATING.BAD) {
+    return TEXT_RATING.BAD;
   }
-  if (rating < RATING_NORMAL) {
-    return `Normal`;
+  if (rating < RATING.NORMAL) {
+    return TEXT_RATING.NORMAL;
   }
-  if (rating < RATING_GOOD) {
-    return `Good`;
+  if (rating < RATING.GOOD) {
+    return TEXT_RATING.GOOD;
   }
-  if (rating < RATING_VERY_GOOD) {
-    return `Very good`;
+  if (rating < RATING.VERY_GOOD) {
+    return TEXT_RATING.VERY_GOOD;
   }
-  return `Awesome`;
+  return TEXT_RATING.AWESOME;
 };
 
 const formatDate = (date) => {
@@ -59,7 +79,7 @@ const formatRating = (rating) => {
   return formatter.format(rating);
 };
 
-const timeToString = (seconds) => {
+const convertTimeToString = (seconds) => {
   seconds = Math.round(seconds);
   let hours = 0;
   let minutes = 0;
@@ -86,4 +106,4 @@ const changeFilm = (films, newFilm) => {
   });
 };
 
-export {formatRuntime, movieRating, formatDate, convertToISODate, formatRating, timeToString, getId, changeFilm};
+export {formatRuntime, getMovieRating, formatDate, convertToISODate, formatRating, convertTimeToString, getId, changeFilm};

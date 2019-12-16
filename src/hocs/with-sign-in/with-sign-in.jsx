@@ -8,24 +8,24 @@ const withSignIn = (Component) => {
         password: ``,
       };
 
-      this._onChangeUserEmailHandler = this._onChangeUserEmailHandler.bind(this);
-      this._onChangeUserPasswordHandler = this._onChangeUserPasswordHandler.bind(this);
-      this._onSubmitFormHandler = this._onSubmitFormHandler.bind(this);
+      this._handlerChangeUserEmail = this._handlerChangeUserEmail.bind(this);
+      this._handlerChangeUserPassword = this._handlerChangeUserPassword.bind(this);
+      this._handlerSubmitForm = this._handlerSubmitForm.bind(this);
     }
 
-    _onChangeUserEmailHandler(evt) {
+    _handlerChangeUserEmail(evt) {
       this.setState({
         email: evt.target.value,
       });
     }
 
-    _onChangeUserPasswordHandler(evt) {
+    _handlerChangeUserPassword(evt) {
       this.setState({
         password: evt.target.value,
       });
     }
 
-    _onSubmitFormHandler(evt) {
+    _handlerSubmitForm(evt) {
       evt.preventDefault();
       const {email, password} = this.state;
       const {onSubmitSignIn} = this.props;
@@ -40,9 +40,9 @@ const withSignIn = (Component) => {
         {...this.props}
         userEmail = {this.state.email}
         userPassword = {this.state.password}
-        onChangeUserEmailHandler = {this._onChangeUserEmailHandler}
-        onChangeUserPasswordHandler = {this._onChangeUserPasswordHandler}
-        onSubmitSignIn = {this._onSubmitFormHandler}
+        onChangeUserEmail = {this._handlerChangeUserEmail}
+        onChangeUserPassword = {this._handlerChangeUserPassword}
+        onSubmitSignIn = {this._handlerSubmitForm}
       />;
     }
   }

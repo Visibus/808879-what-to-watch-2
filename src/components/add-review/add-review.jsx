@@ -1,5 +1,6 @@
 import {filmsTypes, userDataTypes} from "../../types/types";
 import {Link} from "react-router-dom";
+import {AXIOS_SETTINGS} from "..//../helpers/helpers";
 
 const AddReview = (props) => {
   const {films, id, userData, error, isFormValid, onChange, onSubmit, errorLoadingReview, isBlocking} = props;
@@ -35,7 +36,7 @@ const AddReview = (props) => {
 
         <div className="user-block">
           <div className="user-block__avatar">
-            <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+            <img src={`${AXIOS_SETTINGS.BASE_URL_AVATAR}${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
           </div>
         </div>
       </header>

@@ -7,11 +7,11 @@ const apiDispatcher = {
       dispatch(ActionCreator.loadMovies(response.data));
     });
   },
-  authorization: (email, password) => (dispatch, _, api) => {
+  signIn: (email, password) => (dispatch, _, api) => {
     return api.post(`login`, {email, password}).then((response) => {
       if (response.data) {
         dispatch(ActionCreator.saveUserData(response.data));
-        dispatch(ActionCreator.requiredAuthorization(false));
+        dispatch(ActionCreator.setRequiredAuthorization(false));
       } else {
         const errorObject = JSON.parse(JSON.stringify(response));
         dispatch(ActionCreator.setErrorLogin(errorObject.message));

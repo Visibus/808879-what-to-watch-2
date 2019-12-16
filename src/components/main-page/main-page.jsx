@@ -2,10 +2,12 @@ import MoviesList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
 import {connect} from "react-redux";
 import ActionCreator from "../../reducer/actions/actions";
-import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, areMoviesLeftToShow} from "../../reducer/selectors/selectors";
+import {getUniqueGenres, getSelectedGenre, getAllowedAmountOfCards, existsMoviesLeftToShow} from "../../reducer/selectors/selectors";
 import ShowMore from "../show-more/show-more";
 import {Link} from "react-router-dom";
 import {filmsTypes, userDataTypes, promoMovieTypes} from "../../types/types";
+import {AXIOS_SETTINGS} from "../../helpers/helpers";
+
 
 const MORE_CARDS_TO_SHOW_AMOUNT = 20;
 
@@ -60,7 +62,7 @@ const MainPage = (props) => {
             <div className="user-block">
               <Link to={`/mylist`}>
                 <div className="user-block__avatar">
-                  <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+                  <img src={`${AXIOS_SETTINGS.BASE_URL_AVATAR}${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
                 </div>
               </Link>
             </div>
@@ -161,7 +163,7 @@ const mapStateToProps = (state) => ({
   selectedGenre: getSelectedGenre(state),
   films: getAllowedAmountOfCards(state),
   genres: getUniqueGenres(state),
-  isShowMoreVisible: areMoviesLeftToShow(state),
+  isShowMoreVisible: existsMoviesLeftToShow(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

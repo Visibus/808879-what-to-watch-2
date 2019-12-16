@@ -22,7 +22,7 @@ export const initialState = {
   errorLogin: ``,
 };
 
-const reducer = (state = initialState, action) => {
+const reduce = (state = initialState, action) => {
   switch (action.type) {
     case Action.SET_SELECTED_GENRE:
       return Object.assign({}, state, {
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action) => {
       promo: AdapterMovie.parseMovies(action.payload),
 
     });
-    case Action.REQUIRED_AUTHORIZATION:
+    case Action.SET_REQUIRED_AUTHORIZATION:
       return Object.assign({}, state, {
         isAuthorizationRequired: action.payload
       });
@@ -99,4 +99,4 @@ const reducer = (state = initialState, action) => {
 };
 
 
-export {reducer, AMOUNT_CARS_SHOW};
+export {reduce, AMOUNT_CARS_SHOW};

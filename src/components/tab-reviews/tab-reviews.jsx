@@ -6,20 +6,20 @@ const TabReviews = (props) => {
   const {currentTab, indexTab, comments} = props;
   const commentsSorted = comments.sort((a, b) => moment(b.date) - moment(a.date));
 
-  const leftColumn = [];
-  const rightColumn = [];
+  const commentsLeftColumn = [];
+  const commentsRightColumn = [];
   commentsSorted.forEach((it, i) => {
     if (i % 2 === 0) {
-      leftColumn.push(it);
+      commentsLeftColumn.push(it);
     } else {
-      rightColumn.push(it);
+      commentsRightColumn.push(it);
     }
   });
   if (currentTab === indexTab) {
     return (
       <article className="movie-card__reviews movie-card__row">
         <div className="movie-card__reviews-col">
-          {leftColumn.map((it) => {
+          {commentsLeftColumn.map((it) => {
             return <div className="review" key={it.id}>
               <blockquote className="review__quote">
                 <p className="review__text">
@@ -38,7 +38,7 @@ const TabReviews = (props) => {
           })}
         </div>
         <div className="movie-card__reviews-col">
-          {rightColumn.map((it) => {
+          {commentsRightColumn.map((it) => {
             return <div className="review" key={it.id}>
               <blockquote className="review__quote">
                 <p className="review__text">

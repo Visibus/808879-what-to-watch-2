@@ -28,7 +28,7 @@ describe(`Api-dspatcher works correctly`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
-    const authorization = apiDispatcher.authorization(`vvv@vvv.ru`, `pa$$w0rd`);
+    const authorization = apiDispatcher.signIn(`vvv@vvv.ru`, `pa$$w0rd`);
 
     apiMock
       .onPost(`/login`, {email: `vvv@vvv.ru`, password: `pa$$w0rd`})

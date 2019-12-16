@@ -44,9 +44,9 @@ const withFormSubmit = (Component) => {
         let error = ``;
 
         if (text.length < TEXT_LENGHT_MIN) {
-          error = `Количество символов должно быть более 50-ти`;
+          error = `Количество символов должно быть более ${TEXT_LENGHT_MIN}-ти`;
         } else if (text.length > TEXT_LENGHT_MAX) {
-          error = `Количество символов должно быть менее 400`;
+          error = `Количество символов должно быть менее ${TEXT_LENGHT_MAX}`;
         } else {
           valid = true;
         }

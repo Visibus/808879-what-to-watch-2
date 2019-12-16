@@ -1,6 +1,7 @@
 import MoviesList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
 import {filmsTypes, userDataTypes} from "../../types/types";
+import {AXIOS_SETTINGS} from "../../helpers/helpers";
 
 const WatchList = (props) => {
   const {isAuthorizationRequired, userData, films} = props;
@@ -26,7 +27,7 @@ const WatchList = (props) => {
         <div className="user-block">
           <Link to={`/mylist`}>
             <div className="user-block__avatar">
-              <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+              <img src={`${AXIOS_SETTINGS.BASE_URL_AVATAR}${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
             </div>
           </Link>
         </div>

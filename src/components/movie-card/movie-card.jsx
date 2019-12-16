@@ -1,7 +1,7 @@
 import VideoPlayer from "../video-player/video-player";
 import withMovieCard from "../../hocs/with-movie-card/with-movie-card";
 import {Link} from "react-router-dom";
-import {WIDTH_PLAYER_PREVIEW, HEIGHT_PLAYER_PREVIEW} from "../../helpers/helpers";
+import {PLAYER_PREVIEW} from "../../helpers/helpers";
 
 const MovieCard = (props) => {
 
@@ -26,8 +26,8 @@ const MovieCard = (props) => {
             src={previewVideoLink}
             poster={previewImage}
             muted={true}
-            width={WIDTH_PLAYER_PREVIEW}
-            height={HEIGHT_PLAYER_PREVIEW}
+            width={PLAYER_PREVIEW.WIDTH}
+            height={PLAYER_PREVIEW.HEIGHT}
             isPlaying={isPlaying}
           />
         </div>

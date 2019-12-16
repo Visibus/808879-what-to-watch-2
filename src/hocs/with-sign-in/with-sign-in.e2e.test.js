@@ -3,11 +3,11 @@ import withSignIn from "./with-sign-in";
 
 describe(`withSignin hoc works correctly`, () => {
   let signIn;
-  const MockComponent = ({email, password, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn}) => (
+  const MockComponent = ({email, password, onChangeUserEmail, onChangeUserPassword, onSubmitSignIn}) => (
     <div>
       <form action="#" className="sign-in__form" onSubmit={onSubmitSignIn}>
-        <input type="email" value={email} onChange={onChangeUserEmailHandler} />
-        <input type="password" value={password} onChange={onChangeUserPasswordHandler} />
+        <input type="email" value={email} onChange={onChangeUserEmail} />
+        <input type="password" value={password} onChange={onChangeUserPassword} />
       </form>
     </div>
   );
@@ -15,8 +15,8 @@ describe(`withSignin hoc works correctly`, () => {
   MockComponent.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string,
-    onChangeUserEmailHandler: PropTypes.func,
-    onChangeUserPasswordHandler: PropTypes.func,
+    onChangeUserEmail: PropTypes.func,
+    onChangeUserPassword: PropTypes.func,
     onSubmitSignIn: PropTypes.func,
   };
 

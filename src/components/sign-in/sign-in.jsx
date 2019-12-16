@@ -1,7 +1,7 @@
 import withSignIn from "../../hocs/with-sign-in/with-sign-in";
 import {Redirect} from "react-router-dom";
 
-const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUserPasswordHandler, onSubmitSignIn, isAuthorizationRequired, errorLogin}) => {
+const SignIn = ({userEmail, userPassword, onChangeUserEmail, onChangeUserPassword, onSubmitSignIn, isAuthorizationRequired, errorLogin}) => {
   return isAuthorizationRequired ? (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -25,11 +25,11 @@ const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUser
           }
           <div className="sign-in__fields">
             <div className="sign-in__field">
-              <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" value={userEmail} onChange={onChangeUserEmailHandler} />
+              <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" value={userEmail} onChange={onChangeUserEmail} />
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
             <div className="sign-in__field">
-              <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" value={userPassword} onChange={onChangeUserPasswordHandler} />
+              <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" value={userPassword} onChange={onChangeUserPassword} />
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>
           </div>
@@ -59,8 +59,8 @@ const SignIn = ({userEmail, userPassword, onChangeUserEmailHandler, onChangeUser
 SignIn.propTypes = {
   userEmail: PropTypes.string.isRequired,
   userPassword: PropTypes.string.isRequired,
-  onChangeUserEmailHandler: PropTypes.func.isRequired,
-  onChangeUserPasswordHandler: PropTypes.func.isRequired,
+  onChangeUserEmail: PropTypes.func.isRequired,
+  onChangeUserPassword: PropTypes.func.isRequired,
   onSubmitSignIn: PropTypes.func.isRequired,
   isAuthorizationRequired: PropTypes.bool.isRequired,
   errorLogin: PropTypes.string.isRequired,

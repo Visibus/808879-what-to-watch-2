@@ -1,4 +1,4 @@
-import {movieRating, formatRating} from "..//../helpers/helpers";
+import {getMovieRating, formatRating} from "..//../helpers/helpers";
 import {filmTypes} from "../../types/types";
 
 const TabOverView = (props) => {
@@ -10,7 +10,7 @@ const TabOverView = (props) => {
       <div className="movie-rating">
         <div className="movie-rating__score">{formatRating(film.rating)}</div>
         <p className="movie-rating__meta">
-          <span className="movie-rating__level">{movieRating(film.rating)}</span>
+          <span className="movie-rating__level">{getMovieRating(film.rating)}</span>
           <span className="movie-rating__count">{film.scoresCount} ratings</span>
         </p>
       </div>

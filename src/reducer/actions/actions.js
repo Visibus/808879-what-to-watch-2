@@ -28,8 +28,8 @@ const ActionCreator = {
     type: Action.SAVE_USER_DATA,
     payload: userData
   }),
-  requiredAuthorization: (bool) => ({
-    type: Action.REQUIRED_AUTHORIZATION,
+  setRequiredAuthorization: (bool) => ({
+    type: Action.SET_REQUIRED_AUTHORIZATION,
     payload: bool
   }),
   onOpenCloseFilm: (status) => ({

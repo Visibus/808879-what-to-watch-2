@@ -1,4 +1,4 @@
-import {MIN_PROCENT, MAX_PROCENT, timeToString} from "../../helpers/helpers";
+import {PLAYER_PERCENT, convertTimeToString} from "../../helpers/helpers";
 import withVideoPlayerBig from "../../hocs/with-video-player-big/with-video-player-big";
 import {filmTypes} from "../../types/types";
 
@@ -29,10 +29,10 @@ const VideoPlayerBig = (props) => {
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress className="player__progress" value={runTime ? Math.round((progress / runTime) * MAX_PROCENT) : MIN_PROCENT} max={MAX_PROCENT}></progress>
-            <div className="player__toggler" style={{left: `${runTime ? Math.round((progress / runTime) * MAX_PROCENT) : MIN_PROCENT}%`}}>Toggler</div>
+            <progress className="player__progress" value={runTime ? Math.round((progress / runTime) * PLAYER_PERCENT.MAX) : PLAYER_PERCENT.MIN} max={PLAYER_PERCENT.MAX}></progress>
+            <div className="player__toggler" style={{left: `${runTime ? Math.round((progress / runTime) * PLAYER_PERCENT.MAX) : PLAYER_PERCENT.MIN}%`}}>Toggler</div>
           </div>
-          <div className="player__time-value">{(runTime - progress > 0) ? timeToString(runTime - progress) : `00:00:00`}</div>
+          <div className="player__time-value">{(runTime - progress > 0) ? convertTimeToString(runTime - progress) : `00:00:00`}</div>
         </div>
 
         <div className="player__controls-row">

@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
-import {reducer} from ".//reducer/reducers";
+import {reduce} from ".//reducer/reducer";
 import apiDispatcher from ".//reducer/api-dispatcher/api-dispatcher";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
@@ -17,7 +17,7 @@ const init = () => {
   const api = createAPI((...args) => store.dispatch(...args));
 
   const store = createStore(
-      reducer,
+      reduce,
       compose(
           applyMiddleware(thunk.withExtraArgument(api)),
           window.__REDUX_DEVTOOLS_EXTENSION__

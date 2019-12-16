@@ -1,5 +1,5 @@
 import ActionCreator from "./actions/actions";
-import {reducer, AMOUNT_CARS_SHOW} from "./reducers";
+import {reduce, AMOUNT_CARS_SHOW} from "./reducer";
 
 describe(`Action creators work correctly`, () => {
   it(`returns correct action on setting selected genre`, () => {
@@ -9,8 +9,8 @@ describe(`Action creators work correctly`, () => {
     });
   });
   it(`Action creator for require authorization returns correct action`, () => {
-    expect(ActionCreator.requiredAuthorization(true)).toEqual({
-      type: `REQUIRED_AUTHORIZATION`,
+    expect(ActionCreator.setRequiredAuthorization(true)).toEqual({
+      type: `SET_REQUIRED_AUTHORIZATION`,
       payload: true,
     });
   });
@@ -24,7 +24,7 @@ describe(`Action creators work correctly`, () => {
 
 describe(`Reducer works correctly`, () => {
   it(`should set selectedGenre as a given payload`, () => {
-    expect(reducer({
+    expect(reduce({
       selectedGenre: `All genres`,
       movies: [],
     }, {
@@ -37,7 +37,7 @@ describe(`Reducer works correctly`, () => {
   });
 
   it(`should set amountCardsShow correctly`, () => {
-    expect(reducer({
+    expect(reduce({
       selectedGenre: `All genres`,
       movies: [],
       amountCardsShow: 0,
@@ -51,7 +51,7 @@ describe(`Reducer works correctly`, () => {
     });
   });
   it(`should reset amountCardsShow amount`, () => {
-    expect(reducer({
+    expect(reduce({
       selectedGenre: `All genres`,
       movies: [],
       amountCardsShow: 0,
@@ -66,7 +66,7 @@ describe(`Reducer works correctly`, () => {
 
   it(`Reducer correctly change isFilmPlaying`, () => {
     expect(
-        reducer(
+        reduce(
             {
               isFilmPlaying: false,
             },
@@ -82,7 +82,7 @@ describe(`Reducer works correctly`, () => {
 
   it(`Reducer correctly change idSelectedMovie`, () => {
     expect(
-        reducer(
+        reduce(
             {
               idSelectedMovie: 1,
             },
@@ -98,7 +98,7 @@ describe(`Reducer works correctly`, () => {
 
   it(`Reducer correctly change errorLoadingReview`, () => {
     expect(
-        reducer(
+        reduce(
             {
               errorLoadingReview: ``,
             },
@@ -114,7 +114,7 @@ describe(`Reducer works correctly`, () => {
 
   it(`Reducer correctly change erorLogin`, () => {
     expect(
-        reducer(
+        reduce(
             {
               errorLogin: `error login`,
             },

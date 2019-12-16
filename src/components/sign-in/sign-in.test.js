@@ -6,8 +6,8 @@ it(`SignIn correctly renders after relaunch`, () => {
       <BrowserRouter><SignIn
         userEmail={``}
         userPassword={``}
-        onChangeUserEmailHandler={jest.fn()}
-        onChangeUserPasswordHandler={jest.fn()}
+        onChangeUserEmail={jest.fn()}
+        onChangeUserPassword={jest.fn()}
         onSubmitSignIn={jest.fn()}
         isAuthorizationRequired={false}
         errorLogin={``}

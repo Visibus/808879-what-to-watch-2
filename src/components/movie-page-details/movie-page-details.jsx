@@ -2,6 +2,7 @@ import Tabs from "../tabs/tabs";
 import MoviesList from "../movie-list/movie-list";
 import {Link} from "react-router-dom";
 import {userDataTypes, commentsTypes} from "../../types/types";
+import {AXIOS_SETTINGS} from "../../helpers/helpers";
 
 
 const MoviePageDetails = (props) => {
@@ -26,11 +27,11 @@ const MoviePageDetails = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="/" className="logo__link">
+              <Link className="logo__link" to="/">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             {isAuthorizationRequired ?
@@ -41,7 +42,7 @@ const MoviePageDetails = (props) => {
               <div className="user-block">
                 <Link to={`/mylist`}>
                   <div className="user-block__avatar">
-                    <img src={`https://htmlacademy-react-2.appspot.com${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
+                    <img src={`${AXIOS_SETTINGS.BASE_URL_AVATAR}${userData.avatarUrl}`} alt="User avatar" width="63" height="63" />
                   </div>
                 </Link>
               </div>

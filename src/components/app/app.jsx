@@ -12,6 +12,7 @@ import WatchList from "../watch-list/watch-list";
 import withFormSubmit from "../../hocs/with-form-submit/with-form-submit";
 import {filmsTypes, userDataTypes, commentsTypes, promoMovieTypes} from "../../types/types";
 import NotFound from "../not-found/not-found";
+import {COUNT_LIKE_THIS_FILMS} from "../../helpers/helpers";
 
 const App = (props) => {
   const {films, isAuthorizationRequired, onSubmitSignIn, userData, promo, onPostFavorite, isFilmPlaying,
@@ -51,7 +52,7 @@ const App = (props) => {
       }
 
       const activeMovie = films.find((film)=> +film.id === +idSelectedMovie);
-      const moreLikeThisFilms = films.filter((film) => film.genre === activeMovie.genre && film.id !== activeMovie.id).slice(0, 4);
+      const moreLikeThisFilms = films.filter((film) => film.genre === activeMovie.genre && film.id !== activeMovie.id).slice(0, COUNT_LIKE_THIS_FILMS);
       return !isFilmPlaying ?
         <MoviePageDetails
           film={activeMovie}
@@ -117,7 +118,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmitSignIn: (email, password) => {
-    dispatch(apiDispatcher.authorization(email, password));
+    dispatch(apiDispatcher.signIn(email, password));
   },
   onPostFavorite: (id, isFavorite, isPromo) => {
     dispatch(apiDispatcher.postFavorite(id, isFavorite, isPromo));
